@@ -9,7 +9,7 @@
     <p>この例では、ブラウザーの<strong> JavaScript コンソール </strong>に結果を出力させています。</p>
     <script>
         const fetchPromise1 = fetch("https://yscyber.github.io/asynchronous-js/json/cats.json");
-        const fetchPromise2 = fetch("https://yscyber.github.io/asynchronous-js/json/dogs.json/not-found");
+        const fetchPromise2 = fetch("https://yscyber.github.io/asynchronous-js/media/dogs.json/not-found");
         const fetchPromise3 = fetch("bad-scheme://yscyber.github.io/asynchronous-js/json/heroes.json");
 
         Promise.all([fetchPromise1, fetchPromise2, fetchPromise3])
