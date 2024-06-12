@@ -2,7 +2,7 @@
 
 ## 非同期 JavaScript
 
-このリポジトリでは、非同期 JavaScriptに関して記述しています。
+このリポジトリは、非同期JavaScriptに関しての備忘録となっています。
 
 
 [完成ページへ](https://yscyber.github.io/asynchronous-js/ "https://yscyber.github.io/asynchronous-js/")
