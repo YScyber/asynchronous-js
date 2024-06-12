@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>エラーの確認</title>
+</head>
+<body>
+    <p>この例では、ブラウザーの<strong> JavaScript コンソール </strong>に結果を出力させています。</p>
+    <script>
+        const fetchPromise = fetch("json/heroes.json");
+
+        fetchPromise
+            .then((response) => {
+                if (!response.ok) { // OKじゃなかったら
+                    throw new Error(`HTTP error: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then((data) => {
+                console.log(data[0].name);
+            });
+    </script>
+</body>
+</html>

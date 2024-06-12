@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSONデータを出力</title>
+</head>
+<body>
+    <p>この例では、ブラウザーの<strong> JavaScript コンソール </strong>に結果を出力させています。</p>
+    <script>
+        // 非同期処理 (プロミスチェーン)
+        fetch("https://yscyber.github.io/asynchronous-js/json/cats.json") // fetch()メソッドを使用してResponseオブジェクトを返す
+            .then((response) => {
+                    // このハンドラーは、リクエストが成功しなかった場合にエラーを報告します
+                    if (!response.ok) {
+                        throw new Error(`HTTP error: ${response.status}`);
+                    }
+                    // レスポンスが成功した場合、Response.json()メソッドを呼び出してレスポンスをJSONとして取得
+                    return response.json();
+                }) 
+            .then((cats) => { // response.json()が成功したら
+                displayCatInfo(cats); // displayCatInfo関数にJSONをコールバックさせる
+            })
+            .catch((error) => { // エラーが発生した場合
+                console.error(error); // コンソールにエラーを出力
+            });
+        
+        // 読み込んだJSONを元に文章を作成するための関数
+        function displayCatInfo(cats) {
+            // 文章を代入する変数
+            let nameInfo = "私が飼っている猫達の名前は";
+            let genderInfo;
+
+            let total = 0; // 猫の合計
+            let male = 0; // オス猫の数
+
+            // 猫の数の分だけ処理を繰り返す
+            for (let i = 0; i < cats.length; i++) {
+                total++; // 猫の合計を加算
+                if (cats[i].gender === "オス") { // 猫の性別が "オス" だったら
+                    male++; // オス猫の数を加算
+                }
+                if (i < (cats.length - 1)) { // 全体の猫の数から "1" を引いた数までは
+                    nameInfo += cats[i].name + "、"; // "、" で名前を繋げる
+                } else { // 最後の数まできたら
+                    nameInfo += cats[i].name + "です。"; // "です。" で文章を終わらせる
+                }
+            }
+            // メス猫の数の出し方 => 合計(6) - オス(2) = メス(4)
+            genderInfo = `オス${male}匹、メス${(total - male)}匹の計${total}匹の猫を飼っています。`; 
+            
+            // 作成した文章をコンソールに出力
+            console.log(nameInfo); // => 私が飼っている猫達の名前はルナ、ソラ、モカ、ベル、リン、ノアです。
+            console.log(genderInfo); // => オス2匹、メス4匹の計6匹の猫を飼っています。
+        }
+    </script>
+</body>
+</html>

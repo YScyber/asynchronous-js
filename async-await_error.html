@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>asyncとawait -エラー-</title>
+</head>
+<body>
+    <p>この例では、ブラウザーの<strong> JavaScript コンソール </strong>に結果を出力させています。</p>
+    <script>
+        async function fetchProducts() {
+            try {
+                const response = await fetch("json/heroes.json");
+                if (!response.ok) {
+                    throw new Error(`HTTP error: ${response.status}`);
+                }
+                const data = await response.json();
+                return data;
+            } catch(error) {
+                console.error(`Could not get products: ${error}`);
+            }
+        }
+
+        const promise = fetchProducts();
+        console.log(promise[0].name); // <= promiseはPromiseオブジェクトなので、これは動作しません。
+    </script>
+</body>
+</html>

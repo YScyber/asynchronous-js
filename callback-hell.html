@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>コールバックとコールバック地獄</title>
+</head>
+<body>
+    <p>この例では、ブラウザーの<strong> JavaScript コンソール </strong>に結果を出力させています。</p>
+    <script>
+        function doStep1(init, callback) {
+            const result = init + 1;
+            callback(result);
+        }
+
+        function doStep2(init, callback) {
+            const result = init + 2;
+            callback(result);
+        }
+
+        function doStep3(init, callback) {
+            const result = init + 3;
+            callback(result);
+        }
+
+        // コールバック地獄
+        function doOperation() {
+            doStep1(0, (result1) => { // => 0 + 1 = 1
+                doStep2(result1, (result2) => { // => 1 + 2 = 3
+                    doStep3(result2, (result3) => { // => 3 + 3 = 6
+                        console.log(`result: ${result3}`);  // => result: 6
+                    });
+                });
+            });
+        }
+
+        doOperation();
+    </script>
+</body>
+</html>

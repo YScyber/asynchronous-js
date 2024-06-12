@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>保留</title>
+</head>
+<body>
+    <p>この例では、ブラウザーの<strong> JavaScript コンソール </strong>に結果を出力させています。</p>
+    <script>
+        // fetch()メソッドを呼び出し、その返値をfetchPromise変数へ代入します
+        const fetchPromise = fetch("https://yscyber.github.io/asynchronous-js/json/heroes.json");
+
+        // その直後に、fetchPromise変数をログ出力します
+        console.log(fetchPromise); // ▶ Promise <= 読み取り処理がまだ進行中 (pending)
+        
+        // Promise.prototype.then()メソッドにハンドラー関数を渡します
+        fetchPromise.then((response) => {
+            // 読み込み処理に成功すると、ハンドラーが呼び出されサーバーのレスポンスが格納されたResponseオブジェクトが渡されます
+            console.log(`ステータスコード ${response.status} で完了しました。`); // ステータスコード 200 で完了しました。 <= リクエストに成功
+        });
+
+        // リクエストを開始したことをメッセージとしてログ出力します
+        console.log("リクエストを開始しました。"); // リクエストを開始しました。 <= レスポンスを受け取る前にログに記録されることに注意
+    </script>
+</body>
+</html>

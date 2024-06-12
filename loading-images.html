@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>画像</title>
+    <style>
+        html {
+            font-family: sans-serif;
+        }
+
+        body {
+            margin: 20px auto;
+            width: 90%;
+            max-width: 980px;
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        main section {
+            width: calc((100% - 20px) / 3);
+        }
+
+        section img {
+            display: block;
+            bottom: 0px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>人気犬に関して</h1>
+    </header>
+    <main></main>
+    <footer>
+        <p>Copyright nobody. Use the code as you like.</p>
+    </footer>
+    <script>
+        // 非同期処理 (プロミスチェーン)
+        fetch("https://yscyber.github.io/asynchronous-js/media/dogs.json") // // fetch()メソッドを使用してResponseオブジェクトを返す
+            .then((response) => {
+                // このハンドラーは、リクエストが成功しなかった場合にエラーを報告します
+                if (!response.ok) {
+                    throw new Error(`HTTP error: ${response.status}`);
+                }
+                // レスポンスが成功した場合、Response.json()メソッドを呼び出してレスポンスをJSONとして取得
+                return response.json();
+            })
+            .then((dogs) => { // response.json()が成功したら
+                updateDisplay(dogs); // updateDisplay関数にJSONをコールバックさせる
+            })
+            .catch((error) => { // エラーが発生した場合
+                console.error(error); // コンソールにエラーを出力
+            });
+
+        // 読み込んだJSONのデータを1つずつfetchBlob関数へと渡す
+        function updateDisplay(dogs) {
+            for (const dog of dogs) { // 犬の数の分だけループ
+                fetchBlob(dog);
+            }
+        }
+
+        // レスポンスを画像ファイルとして返すための関数
+        function fetchBlob(dog) {
+            // テンプレートリテラル (` `) で犬の画像データがある場所を参照して、url変数に代入
+            const url = `https://yscyber.github.io/asynchronous-js/media/${dog.image}`;
+
+            // 非同期処理 (プロミスチェーン)
+            fetch(url) // fetch(url)を呼び出し、txtファイルのURLを渡します
+                .then((response) => {
+                    // このハンドラーは、リクエストが成功しなかった場合にエラーを報告します
+                    if (!response.ok) {
+                        throw new Error(`HTTP error: ${response.status}`);
+                    }
+                    // レスポンスが成功した場合、Response.blob()メソッドを呼び出してレスポンスを画像として取得
+                    return response.blob();
+                })
+                .then((blob) => { // response.blob()が成功したら
+                    showDog(blob, dog); // showDog関数に画像と犬 (1つのデータ) をコールバックさせる
+                })
+                .catch((error) => { // エラーをキャッチした場合
+                    console.error(error); // コンソールにエラーを出力
+                });
+        }
+
+        // main要素内にすべての要素を格納する
+        function showDog(blob, dog) {
+            // blobをオブジェクトURLに変換します
+            // これは基本的に、ブラウザー内に保存されたオブジェクトを指す一時的な内部URLです
+            const objectURL = URL.createObjectURL(blob);
+            // main要素は取得して、section要素、h2要素、img要素、p要素を作成する
+            const main = document.querySelector("main");
+            const section = document.createElement("section");
+            const heading = document.createElement("h2");
+            const image = document.createElement("img");
+            const para = document.createElement("p");
+
+            // textContentプロパティを使用してheading領域に犬種を表示させます
+            heading.textContent = dog.breed;
+
+            // img要素のsrc属性には、画像のURLを設定し、alt属性には、犬種を設定します
+            image.src = objectURL;
+            image.alt = dog.breed;
+
+            // textContentプロパティを使用してpara領域に特徴を表示させます
+            para.textContent = dog.features;
+
+            // 必要に応じて要素をDOMに追加し、UIに追加します
+            main.appendChild(section);
+            section.appendChild(heading);
+            section.appendChild(image);
+            section.appendChild(para);
+        }
+    </script>
+</body>
+</html>

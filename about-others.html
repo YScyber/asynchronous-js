@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>その他</title>
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <script src="script.js" type="text/javascript" defer></script>
+</head>
+<body>
+    <header>
+        <h1>その他</h1>
+    </header>
+    <div class="wrapper">
+        <aside>
+            <h2>Articles</h2>
+            <ol>
+                <li><a href="#json">JSON</a></li>
+                <li><a href="#console">JavaScript コンソール</a></li>
+            </ol>
+        </aside>
+        <main>
+            <article id="json">
+                <h2>JSON</h2>
+                <p>JavaScript Object Notation (JSON、読み方は<strong>ジェイソン</strong>) はウェブアプリケーションで使用するデータ転送言語の一つです。JavaScriptの<strong>オブジェクト構文</strong>に基づいてテキストベースの形式で構造化されたデータを表現しています。</p>
+                <p>サンプルのJSONファイルを3つ作成しました。内容は以下のとおりです。</p>
+                <p><a href="json/cats.json" title="飼い猫達に関するデータ">cats.json</a></p>
+                <p> [ 1つの配列 ] の中に { オブジェクトが6種類 } あり データが3つ ("name" : "名前", "breed" : "猫種", "gender" : "性別") 入っています。</p>
+                <p><a href="json/dogs.json" title="人気犬に関するデータ"> dogs.json </a></p>
+                <p> [ 1つの配列 ] の中に { オブジェクトが10種類 } あり データが2つ ("breed" : "犬種", "features" : "特徴") 入っています。</p>
+                <p><a href="json/heroes.json" title="ヒーロー達に関するデータ"> heroes.json </a></p>
+                <p> [ 1つの配列 ] の中に { オブジェクトが7種類 } あり データが4つ ("name" : "名前", "age" : "年齢", "realName" : "本名", "technique" : [ "技名" ]) 入っています。<br />
+                [ "技名" ] は配列となっており、いくつかの技名が入っています。</p>
+            </article>
+            <article id="console">
+                <h2>JavaScript コンソール</h2>
+                <p>ここでは JavaScript コンソール画面の出し方について説明しています。</p>
+                <p>どこでもいいので適当なページを開いたら、キーボードの<strong>F12</strong>キーを押していただき、<strong>Console</strong>と書かれているところをクリックしてください。</p>
+                <figure>
+                    <img src="images/console.png" alt="Customize and control DevToolsを赤い線で囲っている" width="640" height="300" />
+                    <figcaption><em>Google Chrome</em> (シークレットモード) でコンソール画面を表示させた場合</figcaption>
+                </figure>
+                <p>画像ではコンソール画面が下に表示されていますが、赤い線で囲った "." が縦に3つ並んでいる所をクリックすると<strong>Dock side</strong>と書かれている項目があるので、そこで好きな場所に移動させることができます (ちなみに、一番左を選択するとコンソール画面が切り離されます) 。</p>
+            </article>
+        </main>
+    </div>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>動作が停止する例</title>
+    <style>
+        body {
+            margin: 20px;
+            padding: 0;
+            max-width: 600px;
+            font: 1.2em/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        label, input, button, textarea {
+            margin-bottom: 10px;
+            font-size: 100%;
+        }
+
+        input {
+            padding: 3px;
+        }
+
+        textarea {
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- 素数の個数を示すlabel要素 -->
+    <label for="quota">素数の個数:</label>
+    <!-- 数字を入力するためのinput要素 (この例では、value属性に1000000とあるので、最初から1000000が入力されている) -->
+    <input type="text" id="quota" name="quota" value="1000000" />
+
+    <!-- 素数を生成するためのbutton要素 -->
+    <button id="generate">素数の生成</button>
+    <!-- ページを再度読み込むためのbutton要素 -->
+    <button id="reload">再読み込み</button>
+
+    <!-- 素数を生成している間、停止してしまうtextarea要素 -->
+    <textarea cols="71" rows="10">
+        
+［素数の生成］ボタンを押したら、ここにテキストの入力を試してみてください。
+
+プログラムが実行されている間、完全に無反応になってしまいます。
+</textarea>
+
+    <!-- すべての素数が生成し終わったら、終了を知らせるためのテキストを出力させるためのdiv要素 -->
+    <div id="output"></div>
+    
+    <script>
+        // 1000000の数字をmaxPrime変数に代入
+        const maxPrime = 1000000;
+
+        // 素数を生成するための関数
+        function isPrime(n) {
+            for (let i = 2; i <= Math.sqrt(n); i++) {
+                if (n % i === 0) {
+                    return false;
+                }
+            }
+            return n > 1;
+        }
+        
+        // ランダムに生成された素数を配列に格納させるための関数
+        function generatePrimes(quota) {
+            // ランダムの数字を生成するためのrandom()関数
+            const random = (max) => Math.floor(Math.random() * max);
+
+            // 生成した素数を格納するための空の配列
+            const primes = [];
+
+            // primes配列に1000000個の素数が格納するまで繰り返す
+            while (primes.length < quota) {
+                // random()関数を利用して生成した1000000個の数字をcandidate変数に代入
+                const candidate = random(maxPrime);
+                if (isPrime(candidate)) { // 素数ができたら
+                    primes.push(candidate); // 配列に格納
+                }
+            }
+            return primes; // 繰り返す
+        }
+
+        // 入力されている数字を読み込み、quota変数に代入
+        const quota = document.getElementById("quota");
+        // 素数の生成が終了したら出力するためのdiv要素を読み込み、output変数に代入
+        const output = document.getElementById("output");
+
+        // 素数を生成するためのボタンを押した場合
+        document.getElementById("generate").addEventListener("click", () => {
+            // 入力されている数の分だけ素数を生成し、primes配列に格納
+            const primes = generatePrimes(quota.value);
+            // 終了したら "入力された数字の分だけ素数を生成した" とテキストを出力
+            output.textContent = `${quota.value}個の素数を生成しました。`;
+        });
+
+        // ページを再度読み込むためのボタンを押した場合
+        document.getElementById("reload").addEventListener("click", () => {
+            // デモファイルのページがリロードされる
+            document.location.reload();
+        });
+    </script>
+</body>
+</html>

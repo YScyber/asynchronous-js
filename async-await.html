@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>asyncとawait</title>
+</head>
+<body>
+    <p>この例では、ブラウザーの<strong> JavaScript コンソール </strong>に結果を出力させています。</p>
+    <script>
+        async function fetchProducts() {
+            try {
+                // この行の後、この関数はFetch APIが決定されるのを待ちます
+                // Fetch APIはResponseオブジェクトを返すか、エラーを発生させます
+                const response = await fetch("https://yscyber.github.io/asynchronous-js/json/heroes.json");
+                if (!response.ok) {
+                    throw new Error(`HTTP error: ${response.status}`);
+                }
+                // この行の後、この関数はResponse.json()メソッドが決定されるのを待ちます
+                // Response.json()メソッドは、解釈されたJSONオブジェクトを返すか、エラーを発生させるかのどちらかです
+                const data = await response.json();
+                console.log(data[0].name); // => Strong Man
+            } catch(error) {
+                console.error(`Could not get products: ${error}`);
+            }
+        }
+
+        fetchProducts();
+    </script>
+</body>
+</html>

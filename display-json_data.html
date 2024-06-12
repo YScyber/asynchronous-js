@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSONデータを出力</title>
+</head>
+<body>
+    <p>この例では、ブラウザーの<strong> JavaScript コンソール </strong>に結果を出力させています。</p>
+    <script>
+        // 非同期処理 (プロミスチェーン)
+        fetch("https://yscyber.github.io/asynchronous-js/json/cats.json") // fetch()メソッドを使用してResponseオブジェクトを返す
+            .then((response) => {
+                    // このハンドラーは、リクエストが成功しなかった場合にエラーを報告します
+                    if (!response.ok) {
+                        throw new Error(`HTTP error: ${response.status}`);
+                    }
+                    // レスポンスが成功した場合、Response.json()メソッドを呼び出してレスポンスをJSONとして取得
+                    return response.json();
+                })
+            .then((cats) => { // response.json()が成功したら
+                displayCatInfo(cats); // displayCatInfo関数にJSONをコールバックさせる
+            })
+            .catch((error) => { // エラーが発生した場合
+                console.error(error); // コンソールにエラーを出力
+            });
+        
+        // 読み込んだJSONのデータをコンソールに出力させる関数
+        function displayCatInfo(cats) {
+            for (let i = 0; i < cats.length; i++) { // 猫の数の分だけループ処理して出力
+                console.log(cats[i].name); // 名前
+                console.log(cats[i].breed); // 猫種
+                console.log(cats[i].gender); // 性別
+            }
+        }
+    </script>
+</body>
+</html>
