@@ -26,6 +26,7 @@ header {
     align-items: flex-start;
     margin: 0 auto;
     padding: 5px;
+    width: 90%;
     max-width: 980px;
 }
 
