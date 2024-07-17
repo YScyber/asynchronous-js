@@ -10,45 +10,46 @@ body {
     color: #f8f8f8;
 }
 
-header {
+.wrapper {
+    display: grid;
+    grid-template-columns: 3fr ifr;
+    gap: 20px;
     margin: 0 auto;
-    padding: 5px;
     width: 90%;
     max-width: 980px;
-    border-bottom: 10px double #f8f8f8;
-    text-align: center;
 }
 
-.wrapper {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin: 0 auto;
-    padding: 5px;
-    width: 90%;
-    max-width: 980px;
+header {
+    border-bottom: 10px double #f8f8f8;
+    text-align: center;
+    grid-column: 1 / 3;
+    grid-row: 1;
+}
+
+main {
+    grid-column: 1;
+    grid-row: 2;
 }
 
 aside {
     position: sticky;
     top: 0px;
-    width: 200px;
+    grid-column: 2;
+    grid-row: 2;
+    align-self: start; /* position: sticly; を使用する際に必要 */
 }
 
-main {
-    width: calc(100% - 240px);
-}
-
-ol, ul.examples {
+aside ol,
+article ul.examples {
     padding-left: 0;
 }
 
-ol li, ul.examples li {
+aside ol li,
+article ul.examples li {
     list-style-type: none;
 }
 
-ol li a {
+aside ol li a {
     display: block;
     padding: 10px;
     width: 100%;
@@ -57,22 +58,26 @@ ol li a {
     box-sizing: border-box;
 }
 
-ol li a.active {
+aside ol li a.active {
     border-left: 2px solid rgb(0, 255, 255);
     background-color: rgba(0, 255, 255, 0.2);
     color: #f8f8f8;
 }
 
-ul.examples li {
+article ul.examples li {
     padding-bottom: 10px;
 }
 
-p a, ul.examples li a {
+article p a,
+article ul.examples li a {
     text-decoration: none;
     color: rgb(0, 255, 255);
 }
 
-p a:focus, p a:hover, ul.examples li a:focus, ul.examples li a:hover {
+article p a:focus,
+article p a:hover,
+article ul.examples li a:focus,
+article ul.examples li a:hover {
     border-bottom: 2px solid;
 }
 
@@ -80,7 +85,7 @@ span {
     color: rgb(0, 255, 255);
 }
 
-iframe, img {
+article iframe {
     max-width: 100%;
     background-color: #fff;
 }
