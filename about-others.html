@@ -16,93 +16,37 @@
             color: #f8f8f8;
         }
 
-        header {
+        .wrapper {
             margin: 0 auto;
-            padding: 5px;
             width: 90%;
-            max-width: 980px;
+            max-width: 800px;
+        }
+
+        header {
             border-bottom: 10px double #f8f8f8;
             text-align: center;
         }
 
-        .wrapper {
-            display: flex;
-            flex-direction: row-reverse;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin: 0 auto;
-            padding: 10px;
-            max-width: 980px;
-        }
-
-        aside {
-            position: sticky;
-            top: 0px;
-            width: 200px;
-        }
-
-        main {
-            width: calc(100% - 240px);
-        }
-
-        ol, ul.examples {
-            padding-left: 0;
-        }
-
-        ol li, ul.examples li {
-            list-style-type: none;
-        }
-
-        ol li a {
-            display: block;
-            padding: 10px;
-            width: 100%;
-            text-decoration: none;
-            color: #ddd;
-            box-sizing: border-box;
-        }
-
-        ol li a.active {
-            border-left: 2px solid rgb(0, 255, 255);
-            background-color: rgba(0, 255, 255, 0.2);
-            color: #f8f8f8;
-        }
-
-        ul.examples li {
-            padding-bottom: 10px;
-        }
-
-        p a, ul.examples li a {
+        article p a {
             text-decoration: none;
             color: rgb(0, 255, 255);
         }
 
-        p a:focus, p a:hover, ul.examples li a:focus, ul.examples li a:hover {
+        article p a:focus,
+        article p a:hover {
             border-bottom: 2px solid;
         }
 
-        span {
-            color: rgb(0, 255, 255);
-        }
-
-        iframe, img {
+        article img {
             max-width: 100%;
-            background-color: #fff;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>その他</h1>
-    </header>
     <div class="wrapper">
-        <aside>
-            <h2>Articles</h2>
-            <ol>
-                <li><a href="#json">JSON</a></li>
-                <li><a href="#console">JavaScript コンソール</a></li>
-            </ol>
-        </aside>
+        <header>
+            <h1>その他</h1>
+        </header>
         <main>
             <article id="json">
                 <h2>JSON</h2>
@@ -128,43 +72,5 @@
             </article>
         </main>
     </div>
-    <script>
-        // オプションを設定
-        const options = {
-            root: null, // ルート要素 (nullはデフォルト値) nullにした場合、見ている画面との交差監視を有効にする
-            rootMargin: "-50% 0px", // 交差を検知するルート要素からの距離
-            threshold: 0 // 閾値 (0はデフォルト値) 0にした場合、見え始めと見え終わりのときにコールバック関数が呼ばれる
-        };
-
-        // IntersectionObserverコンストラクターを呼び出して交差したときに実行したい関数と、オプション設定を渡す
-        const observer = new IntersectionObserver(intersectingElement, options);
-
-        // 今回の交差を監視するarticle要素
-        const articles = document.querySelectorAll("article");
-
-        // それぞれのarticle要素を監視する
-        articles.forEach((article) => {
-            observer.observe(article);
-        });
-
-        // 交差したときに呼び出す関数
-        function intersectingElement(entries) {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    chengeColor(entry.target);
-                }
-            });
-        }
-
-        // タイトルの背景色を変える関数
-        function chengeColor(element) {
-            const currentActiveArticles = document.querySelector(".active");
-            if (currentActiveArticles !== null) {
-                currentActiveArticles.classList.remove("active");
-            }
-            const newActiveArticles = document.querySelector(`a[href="#${element.id}"]`);
-            newActiveArticles.classList.add("active");
-        }
-    </script>
 </body>
 </html>
