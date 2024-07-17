@@ -20,13 +20,14 @@
         }
 
         main {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
         }
 
-        main section {
-            width: calc((100% - 20px) / 3);
+        main > section {
+            display: grid;
+            grid-template-rows: max-content 300px 1fr;
         }
 
         section img {
