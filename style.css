@@ -20,10 +20,10 @@ body {
 }
 
 header {
-    border-bottom: 10px double #f8f8f8;
-    text-align: center;
     grid-column: 1 / 3;
     grid-row: 1;
+    border-bottom: 10px double #f8f8f8;
+    text-align: center;
 }
 
 main {
@@ -32,10 +32,10 @@ main {
 }
 
 aside {
-    position: sticky;
-    top: 0px;
     grid-column: 2;
     grid-row: 2;
+    position: sticky;
+    top: 0px;
     align-self: start; /* position: sticly; を使用する際に必要 */
 }
 
