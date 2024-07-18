@@ -42,10 +42,6 @@ aside {
 aside ol,
 article ul.examples {
     padding-left: 0;
-}
-
-aside ol li,
-article ul.examples li {
     list-style-type: none;
 }
 
