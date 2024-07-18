@@ -36,7 +36,7 @@ aside {
     grid-row: 2;
     position: sticky;
     top: 0px;
-    align-self: start; /* position: sticly; を使用する際に必要 */
+    align-self: start; /* Gridレイアウトで position: sticly; を使用する際に必要 */
 }
 
 aside ol,
