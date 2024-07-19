@@ -85,3 +85,31 @@ article iframe {
     max-width: 100%;
     background-color: #fff;
 }
+
+@media screen and (max-width: 799px) {
+	.wrapper {
+        display: grid;
+        grid-template-columns: ifr;
+        grid-template-rows: auto;
+        gap: 20px;
+        margin: 0 auto;
+        width: 90%;
+        max-width: 980px;
+    }
+    
+    header {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    aside {
+        grid-column: 1;
+        grid-row: 2;
+        position: relative; /* position: sticky; を指定しているためデフォルトに戻す */
+    }
+    
+    main {
+        grid-column: 1;
+        grid-row: 3;
+    }
+}
