@@ -111,4 +111,16 @@ article iframe {
         grid-column: 1;
         grid-row: 3;
     }
+
+    aside ol {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    aside ol li a.active {
+        border: none;
+        border-bottom: 2px solid rgb(0, 255, 255);
+        background-color: rgba(0, 255, 255, 0.2);
+        color: #f8f8f8;
+    }
 }
