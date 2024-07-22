@@ -87,7 +87,7 @@ article iframe {
 }
 
 @media screen and (max-width: 799px) {
-	.wrapper {
+    .wrapper {
         display: grid;
         grid-template-columns: ifr;
         grid-template-rows: auto;
