@@ -39,7 +39,7 @@
                 <h2>同期プログラミング</h2>
                 <p>ウェブページが動かなくなるとはどういうことなのか、実際にプログラムを長時間動作させて同じウェブページ内にある他のプログラムを停止させてみます。</p>
                 <p>プログラムの内容は次のとおりです。</p>
-                <p><strong>[素数の生成]</strong>ボタンを押して1,000,000個の素数を生成しますが、生成している間&lt;textarea&gt;要素内にテキストが入力できなくなってしまうというものです。</p>
+                <p><strong>【素数の生成】</strong>ボタンを押して1,000,000個の素数を生成しますが、生成している間&lt;textarea&gt;要素内にテキストが入力できなくなってしまうというものです。</p>
                 <p>プログラムが終了して&lt;textarea&gt;要素の下に<strong>"1000000個の素数を生成しました。"</strong>と出力された後は&lt;textarea&gt;要素内にテキストが入力できるようになります。</p>
                 <p>以下にあるデモファイルを試してみてください。</p>
                 <iframe src="https://yscyber.github.io/asynchronous-js/stops-working.html" title="動作が停止するデモファイル" width="650" height="300" frameborder="0"></iframe>
@@ -47,23 +47,23 @@
                     <li><a href="https://yscyber.github.io/asynchronous-js/stops-working.html" title="https://yscyber.github.io/asynchronous-js/stops-working.html">動作が停止する例をページ全体で表示する</a></li>
                     <li><a href="https://github.com/YScyber/asynchronous-js/blob/main/stops-working.html" title="YScyber/asynchronous-js/blob/main/stops-working.html">動作が停止する例のソースコードを確認する</a></li>
                 </ul>
-                <p>しかし、ウェブページを読み込んだ時点では&lt;textarea&gt;要素内にテキストを入力できるので<strong>[素数の生成]</strong>ボタンを押さなければ何も問題は起こりません。この<strong>ボタンを押す</strong>というイベントはテストリポジトリと属性セレクターリポジトリでも使用されていたイベントハンドラーです。</p>
+                <p>しかし、ウェブページを読み込んだ時点では&lt;textarea&gt;要素内にテキストを入力できるので<strong>【素数の生成】</strong>ボタンを押さなければ何も問題は起こりません。この<strong>ボタンを押す</strong>というイベントはテストリポジトリと属性セレクターリポジトリでも使用されていたイベントハンドラーです。</p>
                 <h3>非同期関数</h3>
-                <p>イベントハンドラーは<strong>非同期関数</strong>の一種とされていて、イベントが発生したとき (ボタンを押す) に、すぐにではなくても呼び出される関数 (結果を出力させる) を提供します。イベントが<strong>非同期処理が完了した</strong>というものであれば、そのイベントを使用して、非同期関数呼び出しの結果を呼び出し元に通知することができます。</p>
-                <p>初期の非同期APIには<strong>XMLHttpRequest</strong> (XHR) があり、このAPIはJavaScriptでリモートサーバーに<strong>HTTPリクエスト</strong>を行うことができます。これは長時間を要するので非同期APIとなっており、XMLHttpRequestオブジェクト (<code> XMLHttpRequest() </code>) にイベントリスナー (<code> addEventListener("", () => { ... }); </code>) を加えることで、リクエストの進捗と完了の通知をログに記録させることができます。</p>
+                <p>イベントハンドラーは<strong>非同期関数</strong>の一種とされていて、イベントが発生したとき（ボタンを押す）に、すぐにではなくても呼び出される関数（結果を出力させる）を提供します。イベントが<strong>非同期処理が完了した</strong>というものであれば、そのイベントを使用して、非同期関数呼び出しの結果を呼び出し元に通知することができます。</p>
+                <p>初期の非同期APIには<strong>XMLHttpRequest</strong>（XHR）があり、このAPIはJavaScriptでリモートサーバーに<strong>HTTPリクエスト</strong>を行うことができます。これは長時間を要するので非同期APIとなっており、XMLHttpRequestオブジェクト（<code> XMLHttpRequest() </code>）にイベントリスナー（<code> addEventListener("", () => { ... }); </code>）を加えることで、リクエストの進捗と完了の通知をログに記録させることができます。</p>
                 <p>以下の内容のプログラムで、XMLHttpRequest APIを実装しているデモファイルを作成しました。</p>
-                <p><strong>[リクエストを開始]</strong>ボタンを押してリクエストを送信すると、新しいXMLHttpRequestオブジェクトを作成 (<code> const xhr = new XMLHttpRequest(); </code>) し、loadendイベント (<code> addEventListener("loadend", () => { ... }); </code>) を待ち受けます。ハンドラーは<strong>"ステータスコード 200 で完了しました。"</strong> (<code> log.textContent = `${log.textContent}ステータスコード ${xhr.status} で完了しました。`; </code>) とログに記録します。</p>
-                <p>clickイベント (<code> addEventListener("click", () => { ... }); </code>) でリクエストを送信しますが、clickイベント内の一番下にある<strong>"リクエストを開始しました。"</strong> (<code> log.textContent = `${log.textContent}リクエストを開始しました。\n`; </code>) というログが先に記録されることに注意してください。つまり、リクエストが進行している間、プログラムは実行し続けることができ、リクエストが完了したときにloadendイベント (<code> addEventListener("loadend", () => { ... }); </code>) が呼び出されます。</p>
+                <p><strong>【リクエストを開始】</strong>ボタンを押してリクエストを送信すると、新しいXMLHttpRequestオブジェクトを作成（<code> const xhr = new XMLHttpRequest(); </code>）し、loadendイベント（<code> addEventListener("loadend", () => { ... }); </code>）を待ち受けます。ハンドラーは<strong>"ステータスコード 200 で完了しました。"</strong>（<code> log.textContent = `${log.textContent}ステータスコード ${xhr.status} で完了しました。`; </code>）とログに記録します。</p>
+                <p>clickイベント（<code> addEventListener("click", () => { ... }); </code>）でリクエストを送信しますが、clickイベント内の一番下にある<strong>"リクエストを開始しました。"</strong>（<code> log.textContent = `${log.textContent}リクエストを開始しました。\n`; </code>）というログが先に記録されることに注意してください。つまり、リクエストが進行している間、プログラムは実行し続けることができ、リクエストが完了したときにloadendイベント（<code> addEventListener("loadend", () => { ... }); </code>）が呼び出されます。</p>
                 <iframe src="https://yscyber.github.io/asynchronous-js/xhr-api.html" title="XMLHttpRequestデモファイル" width="650" height="300" frameborder="0"></iframe>
                 <ul class="examples">
                     <li><a href="https://yscyber.github.io/asynchronous-js/xhr-api.html" title="https://yscyber.github.io/asynchronous-js/xhr-api.html">XMLHttpRequest APIをページ全体で表示する</a></li>
                     <li><a href="https://github.com/YScyber/asynchronous-js/blob/main/xhr-api.html" title="YScyber/asynchronous-js/blob/main/xhr-api.html">XMLHttpRequest APIのソースコードを確認する</a></li>
                 </ul>
-                <p>これは、先述のリポジトリ (<a href="https://github.com/YScyber/github_start" title="YScyber/github_start">テスト</a>、<a href="https://github.com/YScyber/attribute-selector" title="YScyber/attribute-selector">属性セレクター</a>) と同じイベントハンドラーですが、&lt;button&gt;要素や&lt;input&gt;要素をクリックする代わりに、イベントリスナーがオブジェクトの状態を変化させていることが異なっています。</p>
+                <p>これは、先述のリポジトリ（<a href="https://github.com/YScyber/github_start" title="YScyber/github_start">テスト</a>、<a href="https://github.com/YScyber/attribute-selector" title="YScyber/attribute-selector">属性セレクター</a>）と同じイベントハンドラーですが、&lt;button&gt;要素や&lt;input&gt;要素をクリックする代わりに、イベントリスナーがオブジェクトの状態を変化させていることが異なっています。</p>
                 <h3>コールバック</h3>
                 <p>イベントハンドラーは<strong>コールバック</strong>の一種でもあります。コールバックとは単なる関数のことを指し、他の関数に渡されて適切なタイミングで呼び出されることを期待するもので、JavaScriptで非同期関数を実装するための主な方法として使用されていました。</p>
-                <p>しかし、コールバックベースのソースコードは、コールバック自身がコールバックを受け入れる関数を呼び出さなければならないときに理解しづらくなることがあります。<a href="https://github.com/YScyber/asynchronous-js/blob/main/callback-hell.html" title="YScyber/asynchronous-js/blob/main/callback-hell.html">ソースコード</a> (&lt;script&gt;要素内にあるdoOperation()関数 (<code> function doOperation() { ... } </code>)) をご覧ください。ソースコードが深く入れ子になっていて、とても理解しにくいものになってしまっています (コールバック地獄) 。</p>
-                <p>このような理由から現代の非同期APIのほとんどはコールバックを使用しておらず、JavaScriptで非同期プログラミングの基礎となっているのは<strong>Promise</strong> (読み方は<strong>プロミス</strong>) となります。</p>
+                <p>しかし、コールバックベースのソースコードは、コールバック自身がコールバックを受け入れる関数を呼び出さなければならないときに理解しづらくなることがあります。<a href="https://github.com/YScyber/asynchronous-js/blob/main/callback-hell.html" title="YScyber/asynchronous-js/blob/main/callback-hell.html">ソースコード</a>（&lt;script&gt;要素内にあるdoOperation()関数（<code> function doOperation() { ... } </code>））をご覧ください。ソースコードが深く入れ子になっていて、とても理解しにくいものになってしまっています（コールバック地獄）。</p>
+                <p>このような理由から現代の非同期APIのほとんどはコールバックを使用しておらず、JavaScriptで非同期プログラミングの基礎となっているのは<strong>Promise</strong>（読み方は<strong>プロミス</strong>）となります。</p>
             </article>
             <article id="use-promises">
                 <h2>Promiseについて</h2>
