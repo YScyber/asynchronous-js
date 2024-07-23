@@ -67,13 +67,13 @@
             </article>
             <article id="use-promises">
                 <h2>Promiseについて</h2>
-                <p><strong>Promise</strong> (プロミス) は<strong>非同期関数から返されるオブジェクト</strong>で、操作の現在の状態を表します。Promiseが呼び出し元に返される時点では操作が完了していないことが多く、Promiseオブジェクトは最終的な操作の成功や失敗を処理するためのメソッドを提供しています。</p>
-                <p>前の記事で紹介した<a href="https://github.com/YScyber/asynchronous-js/blob/main/callback-hell.html" title="YScyber/asynchronous-js/blob/main/callback-hell.html">コールバック地獄</a>の設計では、コールバック関数を渡しながら非同期関数を呼び出します。関数はすぐに返値を返し、処理が完了したらコールバックを呼び出します (<code> doStep1(0, (result1) => { doStep2(result1, (result2) => { ... }); });</code>) 。</p>
-                <p>PromiseベースのAPIでは、非同期関数が処理を開始し、Promiseオブジェクト (<code> Promise() </code>) を返します。その後、このPromiseオブジェクトにハンドラーを割り当てれば、操作が<strong>成功</strong> (<code> Promise.prototype.then( ... ) </code>) 、または<strong>失敗</strong> (<code> Promise.prototype.catch( ... ) </code>) したときにハンドラーが実行されます。</p>
+                <p><strong>Promise</strong>（プロミス）は<strong>非同期関数から返されるオブジェクト</strong>で、操作の現在の状態を表します。Promiseが呼び出し元に返される時点では操作が完了していないことが多く、Promiseオブジェクトは最終的な操作の成功や失敗を処理するためのメソッドを提供しています。</p>
+                <p>前の記事で紹介した<a href="https://github.com/YScyber/asynchronous-js/blob/main/callback-hell.html" title="YScyber/asynchronous-js/blob/main/callback-hell.html">コールバック地獄</a>の設計では、コールバック関数を渡しながら非同期関数を呼び出します。関数はすぐに返値を返し、処理が完了したらコールバックを呼び出します（<code> doStep1(0, (result1) => { doStep2(result1, (result2) => { ... }); });</code>）。</p>
+                <p>PromiseベースのAPIでは、非同期関数が処理を開始し、Promiseオブジェクト（<code> Promise() </code>）を返します。その後、このPromiseオブジェクトにハンドラーを割り当てれば、操作が<strong>成功</strong>（<code> Promise.prototype.then( ... ) </code>）、または<strong>失敗</strong>（<code> Promise.prototype.catch( ... ) </code>）したときにハンドラーが実行されます。</p>
                 <h3>Fetch API</h3>
-                <p>ここからは<strong>Fetch API</strong> (<code> fetch() </code>) を使用して<a href="https://yscyber.github.io/asynchronous-js/json/heroes.json" title="https://yscyber.github.io/asynchronous-js/json/heroes.json">https://yscyber.github.io/asynchronous-js/json/heroes.json</a> (架空のヒーローを作成しました) から<a href="https://yscyber.github.io/asynchronous-js/about-others.html#json" title="JSONについて">JSON</a>ファイルをダウンロードし、それに関するいくつかの情報を<a href="https://yscyber.github.io/asynchronous-js/about-others.html#console" title="JavaScript コンソールについて">JavaScript コンソール</a>に結果を出力します。</p>
+                <p>ここからは<strong>Fetch API</strong>（<code> fetch() </code>）を使用して<a href="https://yscyber.github.io/asynchronous-js/json/heroes.json" title="https://yscyber.github.io/asynchronous-js/json/heroes.json">https://yscyber.github.io/asynchronous-js/json/heroes.json</a>（架空のヒーローを作成しました）から<a href="https://yscyber.github.io/asynchronous-js/about-others.html#json" title="JSONについて">JSON</a>ファイルをダウンロードし、それに関するいくつかの情報を<a href="https://yscyber.github.io/asynchronous-js/about-others.html#console" title="JavaScript コンソールについて">JavaScript コンソール</a>に結果を出力します。</p>
                 <p>Fetch APIは、前の記事で使用したXMLHttpRequest APIに代わるPromiseベースのAPIであり、サーバーに<strong>HTTPリクエスト</strong>を行います。HTTPリクエストでは、リクエストメッセージをリモートサーバーに送信し、サーバーからレスポンスが返されます。この記事では、サーバーからJSONファイルを取得するためのリクエストを送信します。
-                <p>まずは、JSONファイルの読み取り処理が<strong>進行中</strong>であることを示しているデモファイルから見ていきます。これは、Promiseオブジェクトがあり、そのオブジェクトのステータスコードが<strong>"pending"</strong> (待機中) であることを示しています。</p>
+                <p>まずは、JSONファイルの読み取り処理が<strong>進行中</strong>であることを示しているデモファイルから見ていきます。これは、Promiseオブジェクトがあり、そのオブジェクトのステータスコードが<strong>"pending"</strong>（待機中）であることを示しています。</p>
                 <p>コンソール画面に出力される順番は、次のようになるはずです。</p>
                 <p>
                     ▶ Promise<br />
@@ -84,44 +84,44 @@
                     <li><a href="https://yscyber.github.io/asynchronous-js/promise_pending.html" title="https://yscyber.github.io/asynchronous-js/promise_pending.html">読み取り処理がまだ進行中をページ全体で表示</a></li>
                     <li><a href="https://github.com/YScyber/asynchronous-js/blob/main/promise_pending.html" title="YScyber/asynchronous-js/blob/main/promise_pending.html">読み取り処理がまだ進行中のソースコードを確認</a></li>
                 </ul>
-                <p>このデモファイルは、前の記事の<a href="https://github.com/YScyber/asynchronous-js/blob/main/xhr-api.html" title="YScyber/asynchronous-js/blob/main/xhr-api.html">XMLHttpRequest API</a>とよく似ていますが、返されたPromise.prototype.then()メソッドにハンドラーを渡しています (<code> fetchPromise.then((response) => { console.log(`ステータスコード ${response.status} で完了しました。`); }); </code>) 。</p>
+                <p>このデモファイルは、前の記事の<a href="https://github.com/YScyber/asynchronous-js/blob/main/xhr-api.html" title="YScyber/asynchronous-js/blob/main/xhr-api.html">XMLHttpRequest API</a>とよく似ていますが、返されたPromise.prototype.then()メソッドにハンドラーを渡しています（<code> fetchPromise.then((response) => { console.log(`ステータスコード ${response.status} で完了しました。`); }); </code>）。</p>
                 <h3>Promiseの用語</h3>
                 <p>Promiseには、かなり特殊な用語が使われています。</p>
-                <p>まず、Promiseは3つの状態のいずれかになります。</p>
+                <p>まず、Promiseは３つの状態のいずれかになります。</p>
                 <dl>
-                    <dt><strong>待機 (pending)</strong></dt>
+                    <dt><strong>待機（pending）</strong></dt>
                     <dd>
                         Promiseが作成され、それが関連する非同期関数がまだ成功も失敗もしていない状態です。<br />
                         これは、Promiseが<strong>fetch()メソッド</strong>を呼び出して返されたときの状態であり、リクエストはまだ実行されています。
                     </dd>
-                    <dt><strong>履行 (fulfilled)</strong></dt>
+                    <dt><strong>履行（fulfilled）</strong></dt>
                     <dd>
                         非同期関数が<strong>成功</strong>しています。<br />
                         Promiseが履行されると<strong>Promise.prototype.then( ... )ハンドラー</strong>が呼び出されます。
                     </dd>
-                    <dt><strong>拒否 (rejected)</strong></dt>
+                    <dt><strong>拒否（rejected）</strong></dt>
                     <dd>
                         非同期関数が<strong>失敗</strong>しています。<br />
                         Promiseが拒否されると<strong>Promise.prototype.catch( ... )ハンドラー</strong>が呼び出されます。
                     </dd>
                 </dl>
-                <p>ここでいう「成功した」「失敗した」に関して、当該APIによるということに注意してください。例えば、fetch()メソッドはサーバーが<strong>404 Not Found</strong>といったエラーを返していればリクエストに成功したと判断しますが、ネットワークのエラーでリクエストが送れなかった場合 (<strong>400 Bad Request</strong>) は成功しないとします。</p>
-                <p><strong>決定 (settled) </strong>という用語を使うこともあります。これは履行と拒否の両方を表します。</p>
-                <p>Promiseが<strong>解決 (resolved) </strong>したというと、決定されたときか、または他のPromiseの状態に従うことで「ロックイン」された場合を表します。</p>
+                <p>ここでいう「成功した」「失敗した」に関して、当該APIによるということに注意してください。例えば、fetch()メソッドはサーバーが<strong>404 Not Found</strong>といったエラーを返していればリクエストに成功したと判断しますが、ネットワークのエラーでリクエストが送れなかった場合（<strong>400 Bad Request</strong>）は成功しないとします。</p>
+                <p><strong>決定（settled）</strong>という用語を使うこともあります。これは履行と拒否の両方を表します。</p>
+                <p>Promiseが<strong>解決（resolved）</strong>したというと、決定されたときか、または他のPromiseの状態に従うことで「ロックイン」された場合を表します。</p>
                 <h3>プロミスチェーン</h3>
-                <p>Fetch APIでは、Responseオブジェクトを取得したら別の関数を呼び出してレスポンスデータを取得する必要があります。今回はレスポンスデータをJSONとして取得したいので、<strong>Response.json()メソッド</strong>を呼び出すことになります。Response.json()メソッドも非同期であることから、これは2つの連続した非同期関数を呼び出さなければならないケースとなります。</p>
-                <p>次のデモファイルでは、前回と同様にFetch API (<code> fetch("https://yscyber.github.io/asynchronous-js/json/heroes.json") </code>) が返すPromise (<code> fetchPromise </code>) に、Promise.prototype.then( ... )ハンドラー (<code> fetchPromise.then((response) => response.json()) </code>) が呼び出され、次に新しいPromise.prototype.then( ... )ハンドラー (<code> .then((data) => { console.log(data[0].name); }); </code>) に最初のPromise.prototype.then( ... )ハンドラーが返すPromiseを渡しています。これで<a href="https://yscyber.github.io/asynchronous-js/json/heroes.json" title="https://yscyber.github.io/asynchronous-js/json/heroes.json">heroes.json</a>ファイル内にある最初のヒーロー名<strong>"Strong Man"</strong>がコンソール画面に出力されます。</p>
+                <p>Fetch APIでは、Responseオブジェクトを取得したら別の関数を呼び出してレスポンスデータを取得する必要があります。今回はレスポンスデータをJSONとして取得したいので、<strong>Response.json()メソッド</strong>を呼び出すことになります。Response.json()メソッドも非同期であることから、これは２つの連続した非同期関数を呼び出さなければならないケースとなります。</p>
+                <p>次のデモファイルでは、前回と同様にFetch API（<code> fetch("https://yscyber.github.io/asynchronous-js/json/heroes.json") </code>）が返すPromise（<code> fetchPromise </code>）に、Promise.prototype.then( ... )ハンドラー（<code> fetchPromise.then((response) => response.json()) </code>）が呼び出され、次に新しいPromise.prototype.then( ... )ハンドラー（<code> .then((data) => { console.log(data[0].name); }); </code>）に最初のPromise.prototype.then( ... )ハンドラーが返すPromiseを渡しています。これで<a href="https://yscyber.github.io/asynchronous-js/json/heroes.json" title="https://yscyber.github.io/asynchronous-js/json/heroes.json">heroes.json</a>ファイル内にある最初のヒーロー名<strong>"Strong Man"</strong>がコンソール画面に出力されます。</p>
                 <ul class="examples">
                     <li><a href="https://yscyber.github.io/asynchronous-js/promise-chain.html" title="https://yscyber.github.io/asynchronous-js/promise-chain.html">プロミスチェーンをページ全体で表示</a></li>
                     <li><a href="https://github.com/YScyber/asynchronous-js/blob/main/promise-chain.html" title="YScyber/asynchronous-js/blob/main/promise-chain.html">プロミスチェーンのソースコードを確認</a></li>
                 </ul>
-                <p>Promiseの特徴はPromise.prototype.then()メソッド自身がPromiseを返し、それに渡された関数の結果で完了することです。最初のPromise.prototype.then()メソッドの中で、2つ目のPromise.prototype.then( ... )ハンドラーを呼び出す代わりにResponse.json()メソッドが返すPromiseを返し、その返値で2つ目のPromise.prototype.then( ... )ハンドラーを呼び出すようにすることができます。これは<strong>プロミスチェーン</strong>と呼ばれ、連続した非同期関数の呼び出しを行う際に、インデントがどんどん深くなっていくのを防ぐことができます。</p>
+                <p>Promiseの特徴はPromise.prototype.then()メソッド自身がPromiseを返し、それに渡された関数の結果で完了することです。最初のPromise.prototype.then()メソッドの中で、２つ目のPromise.prototype.then( ... )ハンドラーを呼び出す代わりにResponse.json()メソッドが返すPromiseを返し、その返値で２つ目のPromise.prototype.then( ... )ハンドラーを呼び出すようにすることができます。これは<strong>プロミスチェーン</strong>と呼ばれ、連続した非同期関数の呼び出しを行う際に、インデントがどんどん深くなっていくのを防ぐことができます。</p>
                 <h3>エラーの処理: Promise.prototype.catch()メソッド</h3>
-                <p>もう一つ追加しなければならないことがあります。リクエストを読み込む前に、サーバーがリクエストを受け入れ、処理することができたかどうかを調べる必要があります。これを行うには、レスポンスのステータスコードを調べて、それが<strong>"OK"</strong>でない場合はエラーを発生させます (<a href="https://github.com/YScyber/asynchronous-js/blob/main/promise-error_confirm.html" title="YScyber/asynchronous-js/blob/main/promise-error_confirm.html">ソースコード</a>) 。</p>
-                <p>Fetch APIは様々な理由でエラーを発生させることがあります (ネットワークに接続できない、URLが何らかの形で不正であるなど) 。サーバーがエラーを返すと、そのエラーを報告することになります。</p>
+                <p>もう１つ追加しなければならないことがあります。リクエストを読み込む前に、サーバーがリクエストを受け入れ、処理することができたかどうかを調べる必要があります。これを行うには、レスポンスのステータスコードを調べて、それが<strong>"OK"</strong>でない場合はエラーを発生させます（<a href="https://github.com/YScyber/asynchronous-js/blob/main/promise-error_confirm.html" title="YScyber/asynchronous-js/blob/main/promise-error_confirm.html">ソースコード</a>）。</p>
+                <p>Fetch APIは様々な理由でエラーを発生させることがあります（ネットワークに接続できない、URLが何らかの形で不正であるなど）。サーバーがエラーを返すと、そのエラーを報告することになります。</p>
                 <p>エラー処理に対応するために、Promiseオブジェクトでは<strong>Promise.prototype.catch()メソッド</strong>を提供しています。これはPromise.prototype.then()メソッドによく似ています。これを呼び出してハンドラー関数を渡します。ただし、Promise.prototype.then()メソッドに渡されたハンドラーは非同期処理が成功したときに呼び出されるのに対し、Promise.prototype.catch()メソッドに渡されたハンドラーは非同期処理が<strong>失敗したとき</strong>に呼び出されます。</p>
-                <p>プロミスチェーンの最後にPromise.prototype.catch()メソッドを追加すると、非同期関数呼び出しのどれかに失敗したときに呼び出されるようになり、いくつかの処理をPromise.prototype.then()メソッドで連続した非同期関数呼び出しとして実装し、すべてのエラーを処理する場所を一つにまとめておくことができます。</p>
-                <p>以下のデモファイルを試してみてください。Promise.prototype.catch()メソッドを使用したエラーハンドラーを追加し、リクエストが失敗するようにURLも変更しているので、Promise.prototype.catch( ... )ハンドラー (<code> .catch((error) => { console.error(`Could not get products: ${error}`); }); </code>) によって記録されたエラーがコンソール画面に出力されるはずです。</p>
+                <p>プロミスチェーンの最後にPromise.prototype.catch()メソッドを追加すると、非同期関数呼び出しのどれかに失敗したときに呼び出されるようになり、いくつかの処理をPromise.prototype.then()メソッドで連続した非同期関数呼び出しとして実装し、すべてのエラーを処理する場所を１つにまとめておくことができます。</p>
+                <p>以下のデモファイルを試してみてください。Promise.prototype.catch()メソッドを使用したエラーハンドラーを追加し、リクエストが失敗するようにURLも変更しているので、Promise.prototype.catch( ... )ハンドラー（<code> .catch((error) => { console.error(`Could not get products: ${error}`); }); </code>）によって記録されたエラーがコンソール画面に出力されるはずです。</p>
                 <p>
                     ▶Fetch API cannot load bad-scheme://yscyber.github.io/asynchronous-js/json/heroes.json. URL scheme "bad-scheme" is not supported.<br />
                     ▶Could not get products: TypeError: Failed to fetch
@@ -139,8 +139,8 @@
                     <li>配列の中のすべてのPromiseが満たされたときに実行されます。この場合、Promise.all()メソッドに渡されたのと同じ順番でPromise.prototype.then( ... )ハンドラーが呼び出されます。</li>
                     <li>配列内のPromiseのうち、どれかが拒否されたときにPromiseを返します。この場合、Promise.prototype.catch( ... )ハンドラーが、拒否されたPromiseが発生したエラーと共に呼び出されます。</li>
                 </ul>
-                <p>以下のデモファイルでは、3つの異なるURLに対して3つのfetch()リクエストを行っています。もしそれらがすべて成功したら、それぞれのレスポンスステータスをコンソール画面に出力します。もしどれかが失敗したら、その失敗をコンソール画面に出力します。</p>
-                <p>ここで指定したURLでは、すべてのリクエストが成功するはずです。ただし、2つ目のリクエストでは、リクエストしたファイルが存在しないため、サーバーは 200 (OK) の代わりに 404 (Not Found) を返します。したがって、次のように出力されます。</p>
+                <p>以下のデモファイルでは、３つの異なるURLに対して３つのfetch()リクエストを行っています。もしそれらがすべて成功したら、それぞれのレスポンスステータスをコンソール画面に出力します。もしどれかが失敗したら、その失敗をコンソール画面に出力します。</p>
+                <p>ここで指定したURLでは、すべてのリクエストが成功するはずです。ただし、２つ目のリクエストでは、リクエストしたファイルが存在しないため、サーバーは<strong>200（OK）</strong>の代わりに<strong>404（Not Found）</strong>を返します。したがって、次のように出力されます。</p>
                 <p>
                     https://yscyber.github.io/asynchronous-js/json/cats.json: 200<br />
                     https://yscyber.github.io/asynchronous-js/media/dogs.json/not-found: 404<br />
@@ -166,7 +166,7 @@
                     <li><a href="https://github.com/YScyber/asynchronous-js/blob/main/promise-any.html" title="YScyber/asynchronous-js/blob/main/promise-any.html">Promise.any()メソッドのソースコードを確認</a></li>
                 </ul>
                 <h3>async関数宣言とawaitキーワード</h3>
-                <p><strong>async関数宣言</strong>により非同期 (Promise) コードをよりシンプルに動作させることができます。関数の開始時に<strong>async</strong>を追加すると、その関数は非同期関数になります (<code> async function sample() { ... } </code>) 。</p>
+                <p><strong>async関数宣言</strong>により非同期（Promise）コードをよりシンプルに動作させることができます。関数の開始時に<strong>async</strong>を追加すると、その関数は非同期関数になります（<code> async function sample() { ... } </code>）。</p>
                 <p>非同期関数の内部では、Promiseを返す関数を呼び出す前に<strong>awaitキーワード</strong>を使用することができます。これは、Promiseが決定するまでコード進行を待たせて、その時点でPromiseの履行された値が返値として扱われるか、拒否された値で例外が発生するようにします。</p>
                 <p>これにより、非同期関数を使用しながらも一見すると同期関数のように見えるソースコードを書くことができます。先述した<a href="https://github.com/YScyber/asynchronous-js/blob/main/promise-chain.html" title="YScyber/asynchronous-js/blob/main/promise-chain.html">プロミスチェーンの例</a>を書き換えた場合のデモファイルが以下となります。</p>
                 <ul class="examples">
@@ -174,7 +174,7 @@
                     <li><a href="https://github.com/YScyber/asynchronous-js/blob/main/async-await.html" title="YScyber/asynchronous-js/blob/main/async-await.html">async関数宣言とawaitキーワードのソースコードを確認</a></li>
                 </ul>
                 <p>ここでは<code> await fetch("https://yscyber.github.io/asynchronous-js/json/heroes.json") </code> を呼び出していますが、呼び出し元はPromiseを取得する代わりに、fetch()メソッドが同期関数であるかのように完全にResponseオブジェクトを取得します。エラー処理のために<code> try { ... } catch (error) { ... } </code>ブロックを使用しているので、同期関数と全く同じように処理できます。</p>
-                <p>しかし、非同期関数は常にPromiseを返すので、このようなことはできません (<a href="https://github.com/YScyber/asynchronous-js/blob/main/async-await_error.html" title="YScyber/asynchronous-js/blob/main/async-await_error.html">ソースコード</a>) 。</p>
+                <p>しかし、非同期関数は常にPromiseを返すので、このようなことはできません（<a href="https://github.com/YScyber/asynchronous-js/blob/main/async-await_error.html" title="YScyber/asynchronous-js/blob/main/async-await_error.html">ソースコード</a>）。</p>
                 <p>その代わり、以下のようにする必要があります。</p>
                 <ul class="examples">
                     <li><a href="https://yscyber.github.io/asynchronous-js/async-await_fixes.html" title="https://yscyber.github.io/asynchronous-js/async-await_fixes.html">async関数宣言とawaitキーワード -修正- をページ全体で表示</a></li>
