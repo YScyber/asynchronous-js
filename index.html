@@ -88,23 +88,26 @@
                 <h3>Promiseの用語</h3>
                 <p>Promiseには、かなり特殊な用語が使われています。</p>
                 <p>まず、Promiseは３つの状態のいずれかになります。</p>
-                <dl>
-                    <dt><strong>待機（pending）</strong></dt>
-                    <dd>
-                        Promiseが作成され、それが関連する非同期関数がまだ成功も失敗もしていない状態です。<br />
-                        これは、Promiseが<strong>fetch()メソッド</strong>を呼び出して返されたときの状態であり、リクエストはまだ実行されています。
-                    </dd>
-                    <dt><strong>履行（fulfilled）</strong></dt>
-                    <dd>
-                        非同期関数が<strong>成功</strong>しています。<br />
-                        Promiseが履行されると<strong>Promise.prototype.then( ... )ハンドラー</strong>が呼び出されます。
-                    </dd>
-                    <dt><strong>拒否（rejected）</strong></dt>
-                    <dd>
-                        非同期関数が<strong>失敗</strong>しています。<br />
-                        Promiseが拒否されると<strong>Promise.prototype.catch( ... )ハンドラー</strong>が呼び出されます。
-                    </dd>
-                </dl>
+                <ul>
+                    <li><strong>待機（pending）</strong>
+                        <ul>
+                            <li>Promiseが作成され、それが関連する非同期関数がまだ成功も失敗もしていない状態です。</li>
+                            <li>これは、Promiseが<strong>fetch()メソッド</strong>を呼び出して返されたときの状態であり、リクエストはまだ実行されています。</li>
+                        </ul>
+                    </li>
+                    <li><strong>履行（fulfilled）</strong>
+                        <ul>
+                            <li>非同期関数が<strong>成功</strong>しています。</li>
+                            <li>Promiseが履行されると<strong>Promise.prototype.then( ... )ハンドラー</strong>が呼び出されます。</li>
+                        </ul>
+                    </li>
+                    <li><strong>拒否（rejected）</strong>
+                        <ul>
+                            <li>非同期関数が<strong>失敗</strong>しています。</li>
+                            <li>Promiseが拒否されると<strong>Promise.prototype.catch( ... )ハンドラー</strong>が呼び出されます。</li>
+                        </ul>
+                    </li>
+                </ul>
                 <p>ここでいう「成功した」「失敗した」に関して、当該APIによるということに注意してください。例えば、fetch()メソッドはサーバーが<strong>404 Not Found</strong>といったエラーを返していればリクエストに成功したと判断しますが、ネットワークのエラーでリクエストが送れなかった場合（<strong>400 Bad Request</strong>）は成功しないとします。</p>
                 <p><strong>決定（settled）</strong>という用語を使うこともあります。これは履行と拒否の両方を表します。</p>
                 <p>Promiseが<strong>解決（resolved）</strong>したというと、決定されたときか、または他のPromiseの状態に従うことで「ロックイン」された場合を表します。</p>
