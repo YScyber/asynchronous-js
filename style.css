@@ -106,11 +106,6 @@ article iframe {
         grid-row: 2;
         position: relative; /* position: sticky; を指定しているためデフォルトに戻す */
     }
-    
-    main {
-        grid-column: 1;
-        grid-row: 3;
-    }
 
     aside ol {
         display: flex;
@@ -129,5 +124,10 @@ article iframe {
         border-bottom: 2px solid rgb(0, 255, 255);
         background-color: rgba(0, 255, 255, 0.2);
         color: #f8f8f8;
+    }
+
+    main {
+        grid-column: 1;
+        grid-row: 3;
     }
 }
