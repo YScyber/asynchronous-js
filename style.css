@@ -10,7 +10,7 @@ body {
     color: #f8f8f8;
 }
 
-.wrapper {
+div.wrapper {
     display: grid;
     grid-template-columns: 3fr ifr;
     gap: 20px;
@@ -87,7 +87,7 @@ article iframe {
 }
 
 @media screen and (max-width: 799px) {
-    .wrapper {
+    div.wrapper {
         display: grid;
         grid-template-columns: ifr;
         grid-template-rows: auto;
