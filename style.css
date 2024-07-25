@@ -113,6 +113,7 @@ aside ol li a.active {
 
     aside ol {
         display: flex;
+	justify-content: space-between;
         flex-wrap: wrap;
     }
 
