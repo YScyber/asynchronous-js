@@ -31,33 +31,19 @@ main {
     grid-row: 2;
 }
 
-aside {
-    grid-column: 2;
-    grid-row: 2;
-    position: sticky;
-    top: 0px;
-    align-self: start; /* Gridレイアウトで position: sticly; を使用する際に必要 */
+article span {
+    color: rgb(0, 255, 255);
 }
 
-aside ol,
-article ul.examples {
+article iframe {
+    max-width: 100%;
+    background-color: #fff;
+}
+
+article ul.examples,
+aside ol {
     padding-left: 0;
     list-style-type: none;
-}
-
-aside ol li a {
-    display: block;
-    padding: 10px;
-    width: 100%;
-    text-decoration: none;
-    color: #ddd;
-    box-sizing: border-box;
-}
-
-aside ol li a.active {
-    border-left: 2px solid rgb(0, 255, 255);
-    background-color: rgba(0, 255, 255, 0.2);
-    color: #f8f8f8;
 }
 
 article ul.examples li {
@@ -77,13 +63,27 @@ article ul.examples li a:hover {
     border-bottom: 2px solid;
 }
 
-article span {
-    color: rgb(0, 255, 255);
+aside {
+    grid-column: 2;
+    grid-row: 2;
+    position: sticky;
+    top: 0px;
+    align-self: start; /* Gridレイアウトで position: sticly; を使用する際に必要 */
 }
 
-article iframe {
-    max-width: 100%;
-    background-color: #fff;
+aside ol li a {
+    display: block;
+    padding: 10px;
+    width: 100%;
+    text-decoration: none;
+    color: #ddd;
+    box-sizing: border-box;
+}
+
+aside ol li a.active {
+    border-left: 2px solid rgb(0, 255, 255);
+    background-color: rgba(0, 255, 255, 0.2);
+    color: #f8f8f8;
 }
 
 @media screen and (max-width: 799px) {
