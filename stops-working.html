@@ -11,39 +11,34 @@
         
         body {
             margin: 0;
-            padding: 0;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        form {
             padding: 1em;
             width: 90%;
             max-width: 700px;
         }
 
-        form label,
-        form input,
-        form button {
+        * {
+            box-sizing: border-box;
+        }
+        
+        label,
+        input,
+        button {
             margin-bottom: 10px;
             font-family: inherit;
             font-size: 100%;
         }
 
-        form input {
+        input {
             padding: 3px;
         }
 
-        form textarea {
+        textarea {
             max-width: 100%;
         }
     </style>
 </head>
 <body>
-    <form>
-        <!-- 素数の個数を示すlabel要素 -->
+    <!-- 素数の個数を示すlabel要素 -->
         <label for="quota">素数の個数:</label>
         <!-- 数字を入力するためのinput要素 (この例では、value属性に1000000とあるので、最初から1000000が入力されている) -->
         <input type="text" id="quota" name="quota" value="1000000" />
@@ -60,7 +55,6 @@
 
 プログラムが実行されている間、完全に無反応になってしまいます。
 </textarea>
-    </form>
 
     <!-- すべての素数が生成し終わったら、終了を知らせるためのテキストを出力させるためのdiv要素 -->
     <div id="output"></div>
