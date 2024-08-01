@@ -36,23 +36,25 @@
     </style>
 </head>
 <body>
-    <!-- 素数の個数を示すlabel要素 -->
-    <label for="quota">素数の個数:</label>
-    <!-- 数字を入力するためのinput要素 (この例では、value属性に1000000とあるので、最初から1000000が入力されている) -->
-    <input type="text" id="quota" name="quota" value="1000000" />
-
-    <!-- 素数を生成するためのbutton要素 -->
-    <button id="generate">素数の生成</button>
-    <!-- ページを再度読み込むためのbutton要素 -->
-    <button id="reload">再読み込み</button>
-
-    <!-- 素数を生成している間、停止してしまうtextarea要素 -->
-    <textarea cols="71" rows="10">
+    <form>
+        <!-- 素数の個数を示すlabel要素 -->
+        <label for="quota">素数の個数:</label>
+        <!-- 数字を入力するためのinput要素 (この例では、value属性に1000000とあるので、最初から1000000が入力されている) -->
+        <input type="text" id="quota" name="quota" value="1000000" />
+    
+        <!-- 素数を生成するためのbutton要素 -->
+        <button id="generate">素数の生成</button>
+        <!-- ページを再度読み込むためのbutton要素 -->
+        <button id="reload">再読み込み</button>
+    
+        <!-- 素数を生成している間、停止してしまうtextarea要素 -->
+        <textarea cols="71" rows="10">
         
 ［素数の生成］ボタンを押したら、ここにテキストの入力を試してみてください。
 
 プログラムが実行されている間、完全に無反応になってしまいます。
 </textarea>
+    </form>
 
     <!-- すべての素数が生成し終わったら、終了を知らせるためのテキストを出力させるためのdiv要素 -->
     <div id="output"></div>
