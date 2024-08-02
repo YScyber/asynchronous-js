@@ -48,7 +48,7 @@
         <p>Copyright nobody. Use the code as you like.</p>
     </footer>
     <script>
-        // 非同期処理 (プロミスチェーン)
+        // 非同期処理（プロミスチェーン）
         fetch("https://yscyber.github.io/asynchronous-js/media/dogs.json") // // fetch()メソッドを使用してResponseオブジェクトを返す
             .then((response) => {
                 // このハンドラーは、リクエストが成功しなかった場合にエラーを報告します
@@ -65,7 +65,7 @@
                 console.error(error); // コンソールにエラーを出力
             });
 
-        // 読み込んだJSONのデータを1つずつfetchBlob関数へと渡す
+        // 読み込んだJSONのデータを１つずつfetchBlob関数へと渡す
         function updateDisplay(dogs) {
             for (const dog of dogs) { // 犬の数の分だけループ
                 fetchBlob(dog);
@@ -74,10 +74,10 @@
 
         // レスポンスを画像ファイルとして返すための関数
         function fetchBlob(dog) {
-            // テンプレートリテラル (` `) で犬の画像データがある場所を参照して、url変数に代入
+            // テンプレートリテラル（` `）で犬の画像データがある場所を参照して、url変数に代入
             const url = `https://yscyber.github.io/asynchronous-js/media/${dog.image}`;
 
-            // 非同期処理 (プロミスチェーン)
+            // 非同期処理（プロミスチェーン）
             fetch(url) // fetch(url)を呼び出し、画像ファイルのURLを渡します
                 .then((response) => {
                     // このハンドラーは、リクエストが成功しなかった場合にエラーを報告します
@@ -88,7 +88,7 @@
                     return response.blob();
                 })
                 .then((blob) => { // response.blob()が成功したら
-                    showDog(blob, dog); // showDog関数に画像と犬 (1つのデータ) をコールバックさせる
+                    showDog(blob, dog); // showDog関数に画像と犬（１つのデータ）をコールバックさせる
                 })
                 .catch((error) => { // エラーをキャッチした場合
                     console.error(error); // コンソールにエラーを出力
@@ -100,7 +100,7 @@
             // blobをオブジェクトURLに変換します
             // これは基本的に、ブラウザー内に保存されたオブジェクトを指す一時的な内部URLです
             const objectURL = URL.createObjectURL(blob);
-            // main要素は取得して、section要素、h2要素、img要素、p要素を作成する
+            // <main>要素は取得して、<section>要素、<h2>要素、<img>要素、<p>要素を作成する
             const main = document.querySelector("main");
             const section = document.createElement("section");
             const heading = document.createElement("h2");
@@ -110,7 +110,7 @@
             // textContentプロパティを使用してheading領域に犬種を表示させます
             heading.textContent = dog.breed;
 
-            // img要素のsrc属性には、画像のURLを設定し、alt属性には、犬種を設定します
+            // <img>要素のsrc属性には画像のURLを設定し、alt属性には犬種を設定します
             image.src = objectURL;
             image.alt = dog.breed;
 
