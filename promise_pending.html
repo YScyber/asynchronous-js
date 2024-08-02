@@ -12,7 +12,7 @@
         const fetchPromise = fetch("https://yscyber.github.io/asynchronous-js/json/heroes.json");
 
         // その直後に、fetchPromise変数をログ出力します
-        console.log(fetchPromise); // ▶ Promise <= 読み取り処理がまだ進行中 (pending)
+        console.log(fetchPromise); // ▶ Promise <= 読み取り処理がまだ進行中（pending）
         
         // Promise.prototype.then()メソッドにハンドラー関数を渡します
         fetchPromise.then((response) => {
