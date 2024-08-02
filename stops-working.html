@@ -36,17 +36,17 @@
     </style>
 </head>
 <body>
-    <!-- 素数の個数を示すlabel要素 -->
+    <!-- 素数の個数を示す<label>要素 -->
     <label for="quota">素数の個数:</label>
-    <!-- 数字を入力するためのinput要素 (この例では、value属性に1000000とあるので、最初から1000000が入力されている) -->
+    <!-- 数字を入力するための<input>要素（この例では、value属性に1000000とあるので、最初から1000000が入力されている） -->
     <input type="text" id="quota" name="quota" value="1000000" />
 
-    <!-- 素数を生成するためのbutton要素 -->
+    <!-- 素数を生成するための<button>要素 -->
     <button id="generate">素数の生成</button>
-    <!-- ページを再度読み込むためのbutton要素 -->
+    <!-- ページを再度読み込むための<button>要素 -->
     <button id="reload">再読み込み</button>
 
-    <!-- 素数を生成している間、停止してしまうtextarea要素 -->
+    <!-- 素数を生成している間、停止してしまう<textarea>要素 -->
     <textarea cols="74" rows="10">
         
 【素数の生成】ボタンを押したら、ここにテキストの入力を試してみてください。
@@ -54,7 +54,7 @@
 プログラムが実行されている間、完全に無反応になってしまいます。
 </textarea>
 
-    <!-- すべての素数が生成し終わったら、終了を知らせるためのテキストを出力させるためのdiv要素 -->
+    <!-- すべての素数が生成し終わったら、終了を知らせるためのテキストを出力させるための<div>要素 -->
     <div id="output"></div>
     
     <script>
@@ -92,7 +92,7 @@
 
         // 入力されている数字を読み込み、quota変数に代入
         const quota = document.getElementById("quota");
-        // 素数の生成が終了したら出力するためのdiv要素を読み込み、output変数に代入
+        // 素数の生成が終了したら出力するための<div>要素を読み込み、output変数に代入
         const output = document.getElementById("output");
 
         // 素数を生成するためのボタンを押した場合
