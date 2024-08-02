@@ -78,7 +78,7 @@
             const url = `https://yscyber.github.io/asynchronous-js/media/${dog.image}`;
 
             // 非同期処理 (プロミスチェーン)
-            fetch(url) // fetch(url)を呼び出し、txtファイルのURLを渡します
+            fetch(url) // fetch(url)を呼び出し、画像ファイルのURLを渡します
                 .then((response) => {
                     // このハンドラーは、リクエストが成功しなかった場合にエラーを報告します
                     if (!response.ok) {
