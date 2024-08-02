@@ -21,23 +21,23 @@
     </style>
 </head>
 <body>
-    <!-- リクエストを開始させるためのbutton要素 -->
+    <!-- リクエストを開始させるための<button>要素 -->
     <button id="startRequest">リクエストを開始</button>
-    <!-- ページを再度読み込むためのbutton要素 -->
+    <!-- ページを再度読み込むための<button>要素 -->
     <button id="reload">再読み込み</button>
 
-    <!-- ログを記録して出力させるためのpre要素 -->
+    <!-- ログを記録して出力させるための<pre>要素 -->
     <pre id="outputLog" readonly></pre>
 
     <script>
-        // ログを記録して出力させるためのpre要素を読み込み、log変数に代入
+        // ログを記録して出力させるための<pre>要素を読み込み、log変数に代入
         const log = document.getElementById("outputLog");
 
-        // リクエストを開始させるためのbutton要素を読み込み、startRequest変数に代入
+        // リクエストを開始させるための<button>要素を読み込み、startRequest変数に代入
         const startRequest = document.getElementById("startRequest");
         // リクエストを開始させるためのボタンを押した場合
         startRequest.addEventListener("click", () => {
-            // ログ内にあるテキスト (記録) を初期化
+            // ログ内にあるテキスト（記録）を初期化
             log.textContent = "";
 
             // 新しいXMLHttpRequestオブジェクトをxhr変数に代入
@@ -45,7 +45,7 @@
 
             // loadendイベントでリクエストの完了を待ち受ける
             xhr.addEventListener("loadend", () => {
-                // 2. リクエストの結果を知らせるテキスト (記録) をlog変数に代入
+                // 2. リクエストの結果を知らせるテキスト（記録）をlog変数に代入
                 log.textContent = `${log.textContent}ステータスコード ${xhr.status} で完了しました。`;
             });
 
@@ -59,7 +59,7 @@
             log.textContent = `${log.textContent}リクエストを開始しました。\n`;
         });
 
-        // ページを再度読み込むためのbutton要素を読み込み、reload変数に代入
+        // ページを再度読み込むための<button>要素を読み込み、reload変数に代入
         const reload = document.getElementById("reload");
         // ページを再度読み込むボタンを押した場合
         reload.addEventListener("click", () => {
