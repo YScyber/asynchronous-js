@@ -99,11 +99,13 @@ aside ol li a.active {
     header {
         grid-column: 1;
         grid-row: 1;
+	gap: 20px;
     }
 
     aside {
         grid-column: 1;
         grid-row: 2;
+	gap: 20px;
         position: relative; /* position: sticky; を指定しているためデフォルトに戻す */
     }
 
@@ -134,5 +136,6 @@ aside ol li a.active {
     main {
         grid-column: 1;
         grid-row: 3;
+	gap: 20px;
     }
 }
