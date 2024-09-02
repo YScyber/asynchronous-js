@@ -88,24 +88,13 @@ aside ol li a.active {
 
 @media screen and (max-width: 799px) {
     div.wrapper {
-        display: grid;
-        grid-template-columns: ifr;
-        grid-template-rows: auto;
-        gap: 20px;
+        display: flex;
+	flex-direction: column;
 	margin: 0 auto;
 	width: 80%;
     }
-    
-    header {
-        grid-column: 1;
-        grid-row: 1;
-	gap: 20px;
-    }
 
     aside {
-        grid-column: 1;
-        grid-row: 2;
-	gap: 20px;
         position: relative; /* position: sticky; を指定しているためデフォルトに戻す */
     }
 
@@ -131,11 +120,5 @@ aside ol li a.active {
         border-bottom: 2px solid rgb(0, 255, 255);
         background-color: rgba(0, 255, 255, 0.2);
         color: #f8f8f8;
-    }
-
-    main {
-        grid-column: 1;
-        grid-row: 3;
-	gap: 20px;
     }
 }
