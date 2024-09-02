@@ -91,7 +91,7 @@ aside ol li a.active {
         display: flex;
 	flex-direction: column;
 	margin: 0 auto;
-	width: 80%;
+	max-width: 80%;
     }
 
     aside {
