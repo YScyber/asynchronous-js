@@ -97,11 +97,18 @@ aside ol li a.active {
 
     aside {
         position: relative; /* position: sticky; を指定しているためデフォルトに戻す */
+	width: 100%;
+	text-align: center;
     }
 
     aside ol {
         display: flex;
 	flex-direction: column;
+    }
+
+    aside ol li {
+	margin: 10px;
+	border: 1px solid #fff;
     }
 
     aside ol li a.active {
@@ -110,11 +117,7 @@ aside ol li a.active {
     	color: #f8f8f8;
     }
 
-    aside ol li a:focus,
-    aside ol li a:hover {
-        border: none; /* ボーダーの設定をリセットする */
-        border-bottom: 2px solid rgb(0, 255, 255);
-        background-color: rgba(0, 255, 255, 0.2);
-        color: #f8f8f8;
+    aside ol li a:active {
+        background-color: rgba(0, 255, 255, 0.4);
     }
 }
