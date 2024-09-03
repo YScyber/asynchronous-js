@@ -99,14 +99,9 @@ aside ol li a.active {
         position: relative; /* position: sticky; を指定しているためデフォルトに戻す */
     }
 
-    aside h2 {
-        text-align: center;
-    }
-
     aside ol {
         display: flex;
-	justify-content: space-between;
-        flex-wrap: wrap;
+	flex-direction: column;
     }
 
     aside ol li a.active {
