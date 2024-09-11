@@ -27,52 +27,50 @@ div.wrapper {
     max-width: 980px;
 }
 
-
-
-main {
+div.wrapper main {
     flex: 4;
 }
 
-article span {
+div.wrapper main article p span {
     color: rgb(0, 255, 255);
 }
 
-article iframe {
+div.wrapper main article iframe {
     max-width: 100%;
     background-color: #fff;
 }
 
-article ul.examples,
-aside ol {
+div.wrapper main article ul.examples,
+div.wrapper aside ol {
     padding-left: 0;
     list-style-type: none;
 }
 
-article ul.examples li {
+div.wrapper main article ul.examples li {
     padding-bottom: 10px;
 }
 
-article p a,
-article ul.examples li a {
+div.wrapper main article p a,
+div.wrapper main article ul.examples li a {
     text-decoration: none;
     color: rgb(0, 255, 255);
 }
 
-article p a:focus,
-article p a:hover,
-article ul.examples li a:focus,
-article ul.examples li a:hover {
+div.wrapper main article p a:focus,
+div.wrapper main article p a:hover,
+div.wrapper main article ul.examples li a:focus,
+div.wrapper main article ul.examples li a:hover {
     border-bottom: 2px solid;
 }
 
-aside {
+div.wrapper aside {
     flex: 1;
     position: sticky;
     align-self: start;
     top: 0px;
 }
 
-aside ol li a {
+div.wrapper aside ol li a {
     display: block;
     padding: 10px;
     width: 100%;
@@ -81,7 +79,7 @@ aside ol li a {
     box-sizing: border-box;
 }
 
-aside ol li a.active {
+div.wrapper aside ol li a.active {
     border-left: 2px solid rgb(0, 255, 255);
     background-color: rgba(0, 255, 255, 0.2);
     color: #f8f8f8;
@@ -95,29 +93,29 @@ aside ol li a.active {
 	width: 90%;
     }
 
-    aside {
+    div.wrapper aside {
         position: relative; /* position: sticky; を指定しているためデフォルトに戻す */
 	width: 100%;
 	text-align: center;
     }
 
-    aside ol {
+    div.wrapper aside ol {
         display: flex;
 	flex-direction: column;
     }
 
-    aside ol li {
+    div.wrapper aside ol li {
 	margin: 10px;
 	border: 1px solid #fff;
     }
 
-    aside ol li a.active {
+    div.wrapper aside ol li a.active {
 	border: none; /* ボーダーの設定をリセットする */
 	background-color: #000;
     	color: #f8f8f8;
     }
 
-    aside ol li a:active {
+    div.wrapper aside ol li a:active {
         background-color: rgba(0, 255, 255, 0.4);
     }
 }
