@@ -81,8 +81,8 @@
                     ステータスコード 200 で完了しました。
                 </p>
                 <ul class="examples">
-                    <li><a href="https://yscyber.github.io/asynchronous-js/promise_pending.html" title="https://yscyber.github.io/asynchronous-js/promise_pending.html">読み取り処理がまだ進行中をページ全体で表示</a></li>
-                    <li><a href="https://github.com/YScyber/asynchronous-js/blob/main/promise_pending.html" title="YScyber/asynchronous-js/blob/main/promise_pending.html">読み取り処理がまだ進行中のソースコードを確認</a></li>
+                    <li><a href="https://yscyber.github.io/asynchronous-js/promise_pending.html" title="https://yscyber.github.io/asynchronous-js/promise_pending.html">読み取り処理がまだ進行中をページ全体で表示する</a></li>
+                    <li><a href="https://github.com/YScyber/asynchronous-js/blob/main/promise_pending.html" title="YScyber/asynchronous-js/blob/main/promise_pending.html">読み取り処理がまだ進行中のソースコードを確認する</a></li>
                 </ul>
                 <p>このデモファイルは、前の記事の<a href="https://github.com/YScyber/asynchronous-js/blob/main/xhr-api.html" title="YScyber/asynchronous-js/blob/main/xhr-api.html">XMLHttpRequest API</a>とよく似ていますが、返されたPromise.prototype.then()メソッドにハンドラーを渡しています（<code> fetchPromise.then((response) => { console.log(`ステータスコード ${response.status} で完了しました。`); }); </code>）。</p>
                 <h3>Promiseの用語</h3>
@@ -115,8 +115,8 @@
                 <p>Fetch APIでは、Responseオブジェクトを取得したら別の関数を呼び出してレスポンスデータを取得する必要があります。今回はレスポンスデータをJSONとして取得したいので、<strong>Response.json()メソッド</strong>を呼び出すことになります。Response.json()メソッドも非同期であることから、これは２つの連続した非同期関数を呼び出さなければならないケースとなります。</p>
                 <p>次のデモファイルでは、前回と同様にFetch API（<code> fetch("https://yscyber.github.io/asynchronous-js/json/heroes.json") </code>）が返すPromise（<code> fetchPromise </code>）に、Promise.prototype.then( ... )ハンドラー（<code> fetchPromise.then((response) => response.json()) </code>）が呼び出され、次に新しいPromise.prototype.then( ... )ハンドラー（<code> .then((data) => { console.log(data[0].name); }); </code>）に最初のPromise.prototype.then( ... )ハンドラーが返すPromiseを渡しています。これで<a href="https://yscyber.github.io/asynchronous-js/json/heroes.json" title="https://yscyber.github.io/asynchronous-js/json/heroes.json">heroes.json</a>ファイル内にある最初のヒーロー名<strong>"Strong Man"</strong>がコンソール画面に出力されます。</p>
                 <ul class="examples">
-                    <li><a href="https://yscyber.github.io/asynchronous-js/promise-chain.html" title="https://yscyber.github.io/asynchronous-js/promise-chain.html">プロミスチェーンをページ全体で表示</a></li>
-                    <li><a href="https://github.com/YScyber/asynchronous-js/blob/main/promise-chain.html" title="YScyber/asynchronous-js/blob/main/promise-chain.html">プロミスチェーンのソースコードを確認</a></li>
+                    <li><a href="https://yscyber.github.io/asynchronous-js/promise-chain.html" title="https://yscyber.github.io/asynchronous-js/promise-chain.html">プロミスチェーンをページ全体で表示する</a></li>
+                    <li><a href="https://github.com/YScyber/asynchronous-js/blob/main/promise-chain.html" title="YScyber/asynchronous-js/blob/main/promise-chain.html">プロミスチェーンのソースコードを確認する</a></li>
                 </ul>
                 <p>Promiseの特徴はPromise.prototype.then()メソッド自身がPromiseを返し、それに渡された関数の結果で完了することです。最初のPromise.prototype.then()メソッドの中で、２つ目のPromise.prototype.then( ... )ハンドラーを呼び出す代わりにResponse.json()メソッドが返すPromiseを返し、その返値で２つ目のPromise.prototype.then( ... )ハンドラーを呼び出すようにすることができます。これは<strong>プロミスチェーン</strong>と呼ばれ、連続した非同期関数の呼び出しを行う際に、インデントがどんどん深くなっていくのを防ぐことができます。</p>
                 <h3>エラーの処理: Promise.prototype.catch()メソッド</h3>
@@ -130,8 +130,8 @@
                     ▶Could not get products: TypeError: Failed to fetch
                 </p>
                 <ul class="examples">
-                    <li><a href="https://yscyber.github.io/asynchronous-js/promise-error_process.html" title="https://yscyber.github.io/asynchronous-js/promise-error_process.html">エラーの処理をページ全体で表示</a></li>
-                    <li><a href="https://github.com/YScyber/asynchronous-js/blob/main/promise-error_process.html" title="YScyber/asynchronous-js/blob/main/promise-error_process.html">エラーの処理のソースコードを確認</a></li>
+                    <li><a href="https://yscyber.github.io/asynchronous-js/promise-error_process.html" title="https://yscyber.github.io/asynchronous-js/promise-error_process.html">エラーの処理をページ全体で表示する</a></li>
+                    <li><a href="https://github.com/YScyber/asynchronous-js/blob/main/promise-error_process.html" title="YScyber/asynchronous-js/blob/main/promise-error_process.html">エラーの処理のソースコードを確認する</a></li>
                 </ul>
                 <h3>複数のPromiseの組み合わせ</h3>
                 <p>プロミスチェーンは処理がいくつかの非同期関数から構成され、次の関数を開始する前にそれぞれの関数が完了する必要がある場合に必要となるものです。しかし、他にも非同期関数の呼び出しを組み合わせる必要がある場合があり、Promise APIはそのためのヘルパーをいくつか提供しています。</p>
@@ -150,8 +150,8 @@
                     https://yscyber.github.io/asynchronous-js/json/heroes.json: 200
                 </p>
                 <ul class="examples">
-                    <li><a href="https://yscyber.github.io/asynchronous-js/promise-all_fulfilled.html" title="https://yscyber.github.io/asynchronous-js/promise-all_fulfilled.html">Promise.all()メソッド -成功- をページ全体で表示</a></li>
-                    <li><a href="https://github.com/YScyber/asynchronous-js/blob/main/promise-all_fulfilled.html" title="YScyber/asynchronous-js/blob/main/promise-all_fulfilled.html">Promise.all()メソッド -成功- のソースコードを確認</a></li>
+                    <li><a href="https://yscyber.github.io/asynchronous-js/promise-all_fulfilled.html" title="https://yscyber.github.io/asynchronous-js/promise-all_fulfilled.html">Promise.all()メソッド -成功- をページ全体で表示する</a></li>
+                    <li><a href="https://github.com/YScyber/asynchronous-js/blob/main/promise-all_fulfilled.html" title="YScyber/asynchronous-js/blob/main/promise-all_fulfilled.html">Promise.all()メソッド -成功- のソースコードを確認する</a></li>
                 </ul>
                 <p>同じコードを間違った形のURLで試すとPromise.prototype.catch( ... )ハンドラーが実行され、次のように出力されます。</p>
                 <p>
@@ -159,29 +159,29 @@
                     ▶Could not get products: TypeError: Failed to fetch
                 </p>
                 <ul class="examples">
-                    <li><a href="https://yscyber.github.io/asynchronous-js/promise-all_rejected.html" title="https://yscyber.github.io/asynchronous-js/promise-all_rejected.html">Promise.all()メソッド -失敗- をページ全体で表示</a></li>
-                    <li><a href="https://github.com/YScyber/asynchronous-js/blob/main/promise-all_rejected.html" title="YScyber/asynchronous-js/blob/main/promise-all_rejected.html">Promise.all()メソッド -失敗- のソースコードを確認</a></li>
+                    <li><a href="https://yscyber.github.io/asynchronous-js/promise-all_rejected.html" title="https://yscyber.github.io/asynchronous-js/promise-all_rejected.html">Promise.all()メソッド -失敗- をページ全体で表示する</a></li>
+                    <li><a href="https://github.com/YScyber/asynchronous-js/blob/main/promise-all_rejected.html" title="YScyber/asynchronous-js/blob/main/promise-all_rejected.html">Promise.all()メソッド -失敗- のソースコードを確認する</a></li>
                 </ul>
                 <h4>Promise.any()メソッド</h4>
                 <p>時には、設定されたPromiseのうちどれかが履行される必要があり、どれが履行されるかは気にしないことがあるかもしれません。そのような場合は<strong>Promise.any()メソッド</strong>を指定します。これはPromise.all()メソッドと似ていますが、Promiseの配列のいずれかが履行されるか、すべてが拒否されるかが異なります。この場合、どの読み込み要求が最初に完了するのかを予測することはできないことに注意してください。</p>
                 <ul class="examples">
-                    <li><a href="https://yscyber.github.io/asynchronous-js/promise-any.html" title="https://yscyber.github.io/asynchronous-js/promise-any.html">Promise.any()メソッドをページ全体で表示</a></li>
-                    <li><a href="https://github.com/YScyber/asynchronous-js/blob/main/promise-any.html" title="YScyber/asynchronous-js/blob/main/promise-any.html">Promise.any()メソッドのソースコードを確認</a></li>
+                    <li><a href="https://yscyber.github.io/asynchronous-js/promise-any.html" title="https://yscyber.github.io/asynchronous-js/promise-any.html">Promise.any()メソッドをページ全体で表示する</a></li>
+                    <li><a href="https://github.com/YScyber/asynchronous-js/blob/main/promise-any.html" title="YScyber/asynchronous-js/blob/main/promise-any.html">Promise.any()メソッドのソースコードを確認する</a></li>
                 </ul>
                 <h3>async関数宣言とawaitキーワード</h3>
                 <p><strong>async関数宣言</strong>により非同期（Promise）コードをよりシンプルに動作させることができます。関数の開始時に<strong>async</strong>を追加すると、その関数は非同期関数になります（<code> async function sample() { ... } </code>）。</p>
                 <p>非同期関数の内部では、Promiseを返す関数を呼び出す前に<strong>awaitキーワード</strong>を使用することができます。これは、Promiseが決定するまでコード進行を待たせて、その時点でPromiseの履行された値が返値として扱われるか、拒否された値で例外が発生するようにします。</p>
                 <p>これにより、非同期関数を使用しながらも一見すると同期関数のように見えるソースコードを書くことができます。先述した<a href="https://github.com/YScyber/asynchronous-js/blob/main/promise-chain.html" title="YScyber/asynchronous-js/blob/main/promise-chain.html">プロミスチェーンの例</a>を書き換えた場合のデモファイルが以下となります。</p>
                 <ul class="examples">
-                    <li><a href="https://yscyber.github.io/asynchronous-js/async-await.html" title="https://yscyber.github.io/asynchronous-js/async-await.html">async関数宣言とawaitキーワードをページ全体で表示</a></li>
-                    <li><a href="https://github.com/YScyber/asynchronous-js/blob/main/async-await.html" title="YScyber/asynchronous-js/blob/main/async-await.html">async関数宣言とawaitキーワードのソースコードを確認</a></li>
+                    <li><a href="https://yscyber.github.io/asynchronous-js/async-await.html" title="https://yscyber.github.io/asynchronous-js/async-await.html">async関数宣言とawaitキーワードをページ全体で表示する</a></li>
+                    <li><a href="https://github.com/YScyber/asynchronous-js/blob/main/async-await.html" title="YScyber/asynchronous-js/blob/main/async-await.html">async関数宣言とawaitキーワードのソースコードを確認する</a></li>
                 </ul>
                 <p>ここでは<code> await fetch("https://yscyber.github.io/asynchronous-js/json/heroes.json") </code> を呼び出していますが、呼び出し元はPromiseを取得する代わりに、fetch()メソッドが同期関数であるかのように完全にResponseオブジェクトを取得します。エラー処理のために<code> try { ... } catch (error) { ... } </code>ブロックを使用しているので、同期関数と全く同じように処理できます。</p>
                 <p>しかし、非同期関数は常にPromiseを返すので、このようなことはできません（<a href="https://github.com/YScyber/asynchronous-js/blob/main/async-await_error.html" title="YScyber/asynchronous-js/blob/main/async-await_error.html">ソースコード</a>）。</p>
                 <p>その代わり、以下のようにする必要があります。</p>
                 <ul class="examples">
-                    <li><a href="https://yscyber.github.io/asynchronous-js/async-await_fixes.html" title="https://yscyber.github.io/asynchronous-js/async-await_fixes.html">async関数宣言とawaitキーワード -修正- をページ全体で表示</a></li>
-                    <li><a href="https://github.com/YScyber/asynchronous-js/blob/main/async-await_fixes.html" title="YScyber/asynchronous-js/blob/main/async-await_fixes.html">async関数宣言とawaitキーワード -修正- のソースコードを確認</a></li>
+                    <li><a href="https://yscyber.github.io/asynchronous-js/async-await_fixes.html" title="https://yscyber.github.io/asynchronous-js/async-await_fixes.html">async関数宣言とawaitキーワード -修正- をページ全体で表示する</a></li>
+                    <li><a href="https://github.com/YScyber/asynchronous-js/blob/main/async-await_fixes.html" title="YScyber/asynchronous-js/blob/main/async-await_fixes.html">async関数宣言とawaitキーワード -修正- のソースコードを確認する</a></li>
                 </ul>
                 <p>また、awaitキーワードは<strong>async関数宣言の中</strong>、もしくはJavaScriptモジュールを非同期関数として動作する際にしか使用できないことに注意してください。</p>
                 <p>おそらく、プロミスチェーンを使用するような場面でasync関数宣言をよく使用すると思いますが、async関数はPromiseをより直感的に動作させることができます。</p>
@@ -248,8 +248,8 @@
                 <p>といった具合にとてもシンプルで、&lt;main&gt;要素の中にJavaScriptでDocument.createElement()メソッドを使用して&lt;section&gt;要素、&lt;h2&gt;要素、&lt;img&gt;要素、&lt;p&gt;要素の順番に作成し、&lt;h2&gt;要素には<strong>犬種</strong>（breed）を、&lt;p&gt;要素にはその犬種に関しての<strong>特徴</strong>（features）を<a href="https://yscyber.github.io/asynchronous-js/media/dogs.json" title="https://yscyber.github.io/asynchronous-js/media/dogs.json">JSON</a>からダウンロードし、textContentプロパティを使用してテキストを表示させています。</p>
                 <p>画像に関しては、これまで使ってきたResponse.json()メソッドや、Response.text()メソッドではなく、Response.blob()メソッドを使用していること以外に変化はありません。</p>
                 <ul class="examples">
-                    <li><a href="https://yscyber.github.io/asynchronous-js/loading-images.html" title="https://yscyber.github.io/asynchronous-js/loading-images.html">画像をページ全体で表示</a></li>
-                    <li><a href="https://github.com/YScyber/asynchronous-js/blob/main/loading-images.html" title="YScyber/asynchronous-js/blob/main/loading-images.html">画像のソースコードを確認</a></li>
+                    <li><a href="https://yscyber.github.io/asynchronous-js/loading-images.html" title="https://yscyber.github.io/asynchronous-js/loading-images.html">画像をページ全体で表示する</a></li>
+                    <li><a href="https://github.com/YScyber/asynchronous-js/blob/main/loading-images.html" title="YScyber/asynchronous-js/blob/main/loading-images.html">画像のソースコードを確認する</a></li>
                 </ul>
                 <p>できれば、本物の犬の写真を使用したかったのですが、著作権などの問題を考慮したため、このような画像となりました。画像に書かれている「300 X 300」は画像の大きさを表しています。</p>
             </article>
@@ -263,7 +263,7 @@
                 <p>その代わり、重複したピクセルの正確な数や、それがどのピクセルであるかを具体的に示すことはできません。しかし、<strong>要素内の何%前後のどこかで交差していたら、何かをする必要がある</strong>という、より一般的な利用法はカバーしています。</p>
                 <p>交差監視APIによって考慮される領域はすべて矩形です。異形の要素は、要素全体を囲む最小の矩形で占有しているとみなされます。同様に、要素の可視部分が矩形ではない場合、要素が交差する矩形は要素の可視部分全体を含む最小の矩形であると見なされます。</p>
                 <ul class="examples">
-                    <li><a href="https://github.com/YScyber/asynchronous-js/blob/main/script.js" title="YScyber/asynchronous-js/blob/main/script.js">交差監視APIのソースコード（script.js）を確認</a></li>
+                    <li><a href="https://github.com/YScyber/asynchronous-js/blob/main/script.js" title="YScyber/asynchronous-js/blob/main/script.js">交差監視APIのソースコード（script.js）を確認する</a></li>
                 </ul>
                 <p>このサイトでは「それぞれの記事（&lt;article&gt;要素）内にあるタイトル（&lt;h2&gt;要素）が<strong>画面の半分</strong>に達したら、背景色が変わる」という事をしています。</p>
             </article>
