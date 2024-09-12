@@ -12,11 +12,15 @@ body {
 
 header {
     margin: 0 auto;
+    padding: 1em;
     width: 90%;
     max-width: 980px;
     border-bottom: 10px double #f8f8f8;
-    text-align: center;
 }
+
+header h1 {
+    text-align: center;
+}	
 
 div.wrapper {
     display: flex;
