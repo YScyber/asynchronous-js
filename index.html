@@ -119,7 +119,7 @@
                     <li><a href="https://github.com/YScyber/asynchronous-js/blob/main/promise-chain.html" title="https://github.com/YScyber/asynchronous-js/blob/main/promise-chain.html">ソースコードを確認</a></li>
                 </ul>
                 <p>Promiseの特徴はPromise.prototype.then()メソッド自身がPromiseを返し、それに渡された関数の結果で完了することです。最初のPromise.prototype.then()メソッドの中で、２つ目のPromise.prototype.then( ... )ハンドラーを呼び出す代わりにResponse.json()メソッドが返すPromiseを返し、その返値で２つ目のPromise.prototype.then( ... )ハンドラーを呼び出すようにすることができます。これは<strong>プロミスチェーン</strong>と呼ばれ、連続した非同期関数の呼び出しを行う際に、インデントがどんどん深くなっていくのを防ぐことができます。</p>
-                <h3>エラーの処理: Promise.prototype.catch()メソッド</h3>
+                <h3>エラーの処理</h3>
                 <p>もう１つ追加しなければならないことがあります。リクエストを読み込む前に、サーバーがリクエストを受け入れ、処理することができたかどうかを調べる必要があります。これを行うには、レスポンスのステータスコードを調べて、それが<strong>"OK"</strong>でない場合はエラーを発生させます（<a href="https://github.com/YScyber/asynchronous-js/blob/main/promise-error_confirm.html" title="https://github.com/YScyber/asynchronous-js/blob/main/promise-error_confirm.html">ソースコード</a>）。</p>
                 <p>Fetch APIは様々な理由でエラーを発生させることがあります（ネットワークに接続できない、URLが何らかの形で不正であるなど）。サーバーがエラーを返すと、そのエラーを報告することになります。</p>
                 <p>エラー処理に対応するために、Promiseオブジェクトでは<strong>Promise.prototype.catch()メソッド</strong>を提供しています。これはPromise.prototype.then()メソッドによく似ています。これを呼び出してハンドラー関数を渡します。ただし、Promise.prototype.then()メソッドに渡されたハンドラーは非同期処理が成功したときに呼び出されるのに対し、Promise.prototype.catch()メソッドに渡されたハンドラーは非同期処理が<strong>失敗したとき</strong>に呼び出されます。</p>
