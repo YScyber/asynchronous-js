@@ -72,7 +72,7 @@
             // String.prototype.replace()メソッドで"Lipsum 1"の"m"と"1"の間の空白を取り除き、String.prototype.toLowerCase()メソッドで"Lipsum"を"lipsum"と小文字に変換させ、それをlipsum変数に代入
             // 代入したlipsum変数とテンプレートリテラル（` `）でtxtファイルがある場所を参照して、url変数に代入
             lipsum = lipsum.replace(" ", "").toLowerCase();
-            const url = `https://yscyber.github.io/asynchronous-js/txt/${lipsum}.txt`;
+            const url = `https://yscyber.github.io/asynchronous-js/read-text-content/txt/${lipsum}.txt`;
 
             // 非同期処理（プロミスチェーン）
             fetch(url) // fetch(url)を呼び出し、txtファイルのURLを渡します
