@@ -189,22 +189,22 @@
             </article>
             <article id="output-json">
                 <h2>JSONデータで文章作成</h2>
-                <p>この記事では、<a href="https://yscyber.github.io/asynchronous-js/json/cats.json" title="https://yscyber.github.io/asynchronous-js/json/cats.json">猫に関するJSONファイル</a>を使用して「すべてのデータにアクセスした例」と「データを元に文章を作成した例」の２つのデモファイルを作成しています。</p>
+                <p>この記事では、<a href="https://yscyber.github.io/asynchronous-js/output-json/json/cats.json" title="https://yscyber.github.io/asynchronous-js/output-json/json/cats.json">猫に関するJSONファイル</a>を使用して「すべてのデータにアクセスした例」と「データを元に文章を作成した例」の２つのデモファイルを作成しています。</p>
                 <p>JSONファイル内にあるデータにアクセスする方法はfetch()メソッドを使用してJSONを読み込み、成功した場合の処理をPromise.prototype.then()メソッドで繋いでいき、最後に失敗した場合の処理をPromise.prototype.catch()メソッドで返す<strong>プロミスチェーン</strong>を使用しています。</p>
                 <p>JSON内にあるすべてのデータをコンソール画面に<strong>名前</strong>、<strong>猫種</strong>、<strong>性別</strong>の順に１行ずつ出力させています。</p>
                 <ul class="examples">
-                    <li><a href="display-json_data.html" title="https://yscyber.github.io/asynchronous-js/display-json_data.html">ページ全体で表示</a></li>
-                    <li><a href="https://github.com/YScyber/asynchronous-js/blob/main/display-json_data.html" title="https://github.com/YScyber/asynchronous-js/blob/main/display-json_data.html">ソースコードを確認</a></li>
+                    <li><a href="output-json/data.html" title="https://yscyber.github.io/asynchronous-js/output-json/data.html">ページ全体で表示</a></li>
+                    <li><a href="https://github.com/YScyber/asynchronous-js/blob/main/output-json/data.html" title="https://github.com/YScyber/asynchronous-js/blob/main/output-json/data.html">ソースコードを確認</a></li>
                 </ul>
-                <p>ここで、配列内にあるオブジェクトは<strong>1</strong>からではなく<strong>0</strong>から数えることに注意してください。<a href="https://github.com/YScyber/asynchronous-js/blob/main/display-json_data.html" title="https://github.com/YScyber/asynchronous-js/blob/main/display-json_data.html">ソースコード</a>内にある<code> for (let i = 0; i &lt; cats.length; i++) { ... } </code>は<strong>iに0を代入し、猫の数の分だけ処理をしたら、ループを抜ける</strong>ということになります。よって<code> i &lt; cats.length; </code>は<code> i &lt; 5; </code>と書き換えることもできますが、そうしてしまうとデータが増減した時に対処できなくなるため、このように記述しています。</p>
+                <p>ここで、配列内にあるオブジェクトは<strong>1</strong>からではなく<strong>0</strong>から数えることに注意してください。<a href="https://github.com/YScyber/asynchronous-js/blob/main/output-json/data.html" title="https://github.com/YScyber/asynchronous-js/blob/main/output-json/data.html">ソースコード</a>内にある<code> for (let i = 0; i &lt; cats.length; i++) { ... } </code>は<strong>iに0を代入し、猫の数の分だけ処理をしたら、ループを抜ける</strong>ということになります。よって<code> i &lt; cats.length; </code>は<code> i &lt; 5; </code>と書き換えることもできますが、そうしてしまうとデータが増減した時に対処できなくなるため、このように記述しています。</p>
                 <p>JSON内にあるデータを元に以下の文章を作成しコンソール画面に出力させています。</p>
                 <p>
                     "私が飼っている猫達の名前はルナ、ソラ、モカ、ベル、リン、ノアです。"<br />
                     "オス2匹、メス4匹の計6匹の猫を飼っています。"
                 </p>
                 <ul class="examples">
-                    <li><a href="display-json_sentence.html" title="https://yscyber.github.io/asynchronous-js/display-json_sentence.html">ページ全体で表示</a></li>
-                    <li><a href="https://github.com/YScyber/asynchronous-js/blob/main/display-json_sentence.html" title="https://github.com/YScyber/asynchronous-js/blob/main/display-json_sentence.html">ソースコードを確認</a></li>
+                    <li><a href="output-json/sentence.html" title="https://yscyber.github.io/asynchronous-js/output-json/sentence.html">ページ全体で表示</a></li>
+                    <li><a href="https://github.com/YScyber/asynchronous-js/blob/main/output-json/sentence.html" title="https://github.com/YScyber/asynchronous-js/blob/main/output-json/sentence.html">ソースコードを確認</a></li>
                 </ul>
             </article>
             <article id="read-text-content">
