@@ -113,7 +113,7 @@
                 <p>Promiseが<strong>解決（resolved）</strong>したというと、決定されたときか、または他のPromiseの状態に従うことで「ロックイン」された場合を表します。</p>
                 <h3>プロミスチェーン</h3>
                 <p>Fetch APIでは、Responseオブジェクトを取得したら別の関数を呼び出してレスポンスデータを取得する必要があります。今回はレスポンスデータをJSONとして取得したいので、<strong>Response.json()メソッド</strong>を呼び出すことになります。Response.json()メソッドも非同期であることから、これは２つの連続した非同期関数を呼び出さなければならないケースとなります。</p>
-                <p>次のデモファイルでは、前回と同様にFetch API（<code> fetch("https://yscyber.github.io/asynchronous-js/json/heroes.json") </code>）が返すPromise（<code> fetchPromise </code>）に、Promise.prototype.then( ... )ハンドラー（<code> fetchPromise.then((response) => response.json()) </code>）が呼び出され、次に新しいPromise.prototype.then( ... )ハンドラー（<code> .then((data) => { console.log(data[0].name); }); </code>）に最初のPromise.prototype.then( ... )ハンドラーが返すPromiseを渡しています。これで<a href="https://yscyber.github.io/asynchronous-js/use-promises/json/heroes.json" title="https://yscyber.github.io/asynchronous-js/use-promises/json/heroes.json">heroes.json</a>ファイル内にある最初のヒーロー名<strong>"Strong Man"</strong>がコンソール画面に出力されます。</p>
+                <p>次のデモファイルでは、前回と同様にFetch API（<code> fetch("https://yscyber.github.io/asynchronous-js/use-promises/json/heroes.json") </code>）が返すPromise（<code> fetchPromise </code>）に、Promise.prototype.then( ... )ハンドラー（<code> fetchPromise.then((response) => response.json()) </code>）が呼び出され、次に新しいPromise.prototype.then( ... )ハンドラー（<code> .then((data) => { console.log(data[0].name); }); </code>）に最初のPromise.prototype.then( ... )ハンドラーが返すPromiseを渡しています。これで<a href="https://yscyber.github.io/asynchronous-js/use-promises/json/heroes.json" title="https://yscyber.github.io/asynchronous-js/use-promises/json/heroes.json">heroes.json</a>ファイル内にある最初のヒーロー名<strong>"Strong Man"</strong>がコンソール画面に出力されます。</p>
                 <ul class="examples">
                     <li><a href="use-promises/promise-chain.html" title="https://yscyber.github.io/asynchronous-js/use-promises/promise-chain.html">ページ全体で表示</a></li>
                     <li><a href="https://github.com/YScyber/asynchronous-js/blob/main/use-promises/promise-chain.html" title="https://github.com/YScyber/asynchronous-js/blob/main/use-promises/promise-chain.html">ソースコードを確認</a></li>
@@ -126,7 +126,7 @@
                 <p>プロミスチェーンの最後にPromise.prototype.catch()メソッドを追加すると、非同期関数呼び出しのどれかに失敗したときに呼び出されるようになり、いくつかの処理をPromise.prototype.then()メソッドで連続した非同期関数呼び出しとして実装し、すべてのエラーを処理する場所を１つにまとめておくことができます。</p>
                 <p>以下のデモファイルを試してみてください。Promise.prototype.catch()メソッドを使用したエラーハンドラーを追加し、リクエストが失敗するようにURLも変更しているので、Promise.prototype.catch( ... )ハンドラー（<code> .catch((error) => { console.error(`Could not get products: ${error}`); }); </code>）によって記録されたエラーがコンソール画面に出力されるはずです。</p>
                 <p>
-                    ▶Fetch API cannot load bad-scheme://yscyber.github.io/asynchronous-js/json/heroes.json. URL scheme "bad-scheme" is not supported.<br />
+                    ▶Fetch API cannot load bad-scheme://yscyber.github.io/asynchronous-js/use-promises/json/heroes.json. URL scheme "bad-scheme" is not supported.<br />
                     ▶Could not get products: TypeError: Failed to fetch
                 </p>
                 <ul class="examples">
@@ -145,9 +145,9 @@
                 <p>以下のデモファイルでは、３つの異なるURLに対して３つのfetch()リクエストを行っています。もしそれらがすべて成功したら、それぞれのレスポンスステータスをコンソール画面に出力します。もしどれかが失敗したら、その失敗をコンソール画面に出力します。</p>
                 <p>ここで指定したURLでは、すべてのリクエストが成功するはずです。ただし、２つ目のリクエストでは、リクエストしたファイルが存在しないため、サーバーは<strong>200（OK）</strong>の代わりに<strong>404（Not Found）</strong>を返します。したがって、次のように出力されます。</p>
                 <p>
-                    https://yscyber.github.io/asynchronous-js/json/cats.json: 200<br />
-                    https://yscyber.github.io/asynchronous-js/media/dogs.json/not-found: 404<br />
-                    https://yscyber.github.io/asynchronous-js/json/heroes.json: 200
+                    https://yscyber.github.io/asynchronous-js/output-json/json/cats.json: 200<br />
+                    https://yscyber.github.io/asynchronous-js/loading-images/media/dogs.json/not-found: 404<br />
+                    https://yscyber.github.io/asynchronous-js/use-promises/json/heroes.json: 200
                 </p>
                 <ul class="examples">
                     <li><a href="use-promises/promise-all_fulfilled.html" title="https://yscyber.github.io/asynchronous-js/use-promises/promise-all_fulfilled.html">ページ全体で表示</a></li>
@@ -155,7 +155,7 @@
                 </ul>
                 <p>同じコードを間違った形のURLで試すとPromise.prototype.catch( ... )ハンドラーが実行され、次のように出力されます。</p>
                 <p>
-                    ▶Fetch API cannot load bad-scheme://yscyber.github.io/asynchronous-js/json/heroes.json. URL scheme "bad-scheme" is not supported.<br />
+                    ▶Fetch API cannot load bad-scheme://yscyber.github.io/asynchronous-js/use-promises/json/heroes.json. URL scheme "bad-scheme" is not supported.<br />
                     ▶Could not get products: TypeError: Failed to fetch
                 </p>
                 <ul class="examples">
@@ -176,7 +176,7 @@
                     <li><a href="use-promises/async-await.html" title="https://yscyber.github.io/asynchronous-js/use-promises/async-await.html">ページ全体で表示</a></li>
                     <li><a href="https://github.com/YScyber/asynchronous-js/blob/main/use-promises/async-await.html" title="https://github.com/YScyber/asynchronous-js/blob/main/use-promises/async-await.html">ソースコードを確認</a></li>
                 </ul>
-                <p>ここでは<code> await fetch("https://yscyber.github.io/asynchronous-js/json/heroes.json") </code> を呼び出していますが、呼び出し元はPromiseを取得する代わりに、fetch()メソッドが同期関数であるかのように完全にResponseオブジェクトを取得します。エラー処理のために<code> try { ... } catch (error) { ... } </code>ブロックを使用しているので、同期関数と全く同じように処理できます。</p>
+                <p>ここでは<code> await fetch("https://yscyber.github.io/asynchronous-js/use-promises/json/heroes.json") </code> を呼び出していますが、呼び出し元はPromiseを取得する代わりに、fetch()メソッドが同期関数であるかのように完全にResponseオブジェクトを取得します。エラー処理のために<code> try { ... } catch (error) { ... } </code>ブロックを使用しているので、同期関数と全く同じように処理できます。</p>
                 <p>しかし、非同期関数は常にPromiseを返すので、このようなことはできません（<a href="https://github.com/YScyber/asynchronous-js/blob/main/use-promises/async-await_error.html" title="https://github.com/YScyber/asynchronous-js/blob/main/use-promises/async-await_error.html">ソースコード</a>）。</p>
                 <p>その代わり、以下のようにする必要があります。</p>
                 <ul class="examples">
