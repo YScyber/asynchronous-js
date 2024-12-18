@@ -5,7 +5,7 @@
 index.htmlファイルはレスポンシブWebデザインを適用しています。ディスプレイの幅が799px以下のデバイスでサイトを閲覧した場合、交差監視API（Intersection Observer API）に関するCSSの挙動は機能しないソースコードとなっています。
 <br>
 
-※ 日本時間 2024/12/18 に変更しました。
+※ 日本時間 2024/12/18 に変更を加えました。
 <br><br>
 
 [完成ページへ](https://yscyber.github.io/asynchronous-js/ "https://yscyber.github.io/asynchronous-js/")
