@@ -1,6 +1,6 @@
 @charset "UTF-8";
 html {
-    font: 1em/1.7 "serif";
+    font: 1em/1.2 serif;
 }
 
 body {
@@ -14,7 +14,7 @@ body {
 
 header {
     padding: 1em;
-    border-bottom: 10px double #f8f8f8;
+    border-bottom: 10px double;
 }
 
 header h1 {
