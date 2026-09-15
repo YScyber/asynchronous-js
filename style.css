@@ -56,13 +56,6 @@ div.wrapper main article ul.examples li a {
     color: rgb(0, 255, 255);
 }
 
-div.wrapper main article p a:focus,
-div.wrapper main article p a:hover,
-div.wrapper main article ul.examples li a:focus,
-div.wrapper main article ul.examples li a:hover {
-    border-bottom: 2px solid;
-}
-
 div.wrapper aside {
     flex: 1;
     position: sticky;
